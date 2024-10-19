@@ -6,11 +6,31 @@ from reflex_audio_capture import AudioRecorderPolyfill, get_codec, strip_codec_p
 
 import os
 from groq import Groq
+from deepgram import (
+    DeepgramClient,
+    SpeakOptions,
+)
+
+import chromadb
+
+from chromadb import Documents, EmbeddingFunction, Embeddings
+import google.generativeai as genai
 
 # Initialize the Groq client
 client = Groq(api_key="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")
+deepgram = DeepgramClient("4186faa1b840c8c63f87d22f0f5d6d744ce9f100")
+genai.configure(api_key='AIzaSyBoWysd4slrqHZUjZe7i9PJPSl4YugAxeI')
 
 REF = "myaudio"
+
+class GeminiEmbeddingFunction(EmbeddingFunction):
+    def __call__(self, input: Documents) -> Embeddings:
+        model = 'models/embedding-001'
+        title = "Custom query"
+        return genai.embed_content(model=model,
+                                    content=input,
+                                    task_type="retrieval_document",
+                                    title=title)["embedding"]
 
 
 class UserState(rx.State):
@@ -22,6 +42,12 @@ class UserState(rx.State):
     timeslice: int = 0
     device_id: str = ""
     use_mp3: bool = True
+    tts_output_file: str = ""
+
+    img_to_display: str = ""
+    text_output: str = ""
+    process_input: bool = False
+    process_output: bool = False
 
     async def on_data_available(self, chunk: str):
         mime_type, _, codec = get_codec(chunk).partition(";")
@@ -49,6 +75,86 @@ class UserState(rx.State):
             finally:
                 self.processing = False
             self.transcript.append(transcription.text)
+        
+        # Get Documents
+        collection = chromadb.HttpClient(host='localhost', port=8001).get_or_create_collection(name="vectordb", embedding_function=GeminiEmbeddingFunction())
+        results = collection.query(
+            query_texts=[" ".join(self.transcript)],
+            n_results=10,
+        )
+        print(results)
+
+        # Prompt LLM
+        documents = results["documents"][0]
+        metadatas = results["metadatas"][0]
+
+        output = ""
+        # Iterate through the documents
+        for i, (doc, metadata) in enumerate(zip(documents, metadatas)):
+            print(doc)
+            # Split the document into date and description
+            date, description, image_summary = doc.split('|', 2)
+            filename = metadata["filename"]
+            
+            # Add the formatted data to the result string
+            output += f"""
+            <memory{i}>
+            Date: {date}
+            Description: {description}
+            ImageName: {filename}
+            Image Summary: {image_summary}
+            </memory{i}>
+            """
+        output = output.strip()
+
+        system = f"""
+        You are Memento, a memory storage AI designed for elderly individuals in nursing homes.
+        Your role is to help elderly users recall cherished memories by using voice recognition technology. 
+        When an elderly user speaks about a memory, you retrieve and display relevant images that are stored in the system.
+        Your responses should be based on the data provided about the memories
+        
+        # Persona
+        <persona>
+        - Be Empathetic and Warm
+        - Have a Clear and Simple Communication
+        - Be Nostalgic and Personalized
+        - Be Patient and Non-Rushed
+        - Keep Your Tone Gentle, Slow-Paced, Comforting
+        </persona>
+
+        # Memories Data
+        <data>
+        {output}
+        </data>
+        """
+
+        print(system)
+
+        def fileNameGrabber(image_name: str) -> str:
+            """Grabs the Image Name of the most relevant memory created in your response.
+
+            Args:
+                image_name: Light level from 0 to 100. Zero is off and 100 is full brightness
+
+            Returns:
+                A string containing the image_name of the most relevant memory in your response.
+            """
+            return image_name
+
+        model = genai.GenerativeModel(
+            model_name="gemini-1.5-flash",
+            system_instruction=system,
+            tools=[fileNameGrabber]
+        )
+
+        generated = model.generate_content(" ".join(self.transcript))
+
+        self.text_output = generated._result.candidates["content"]["parts"][0]["text"]
+        print(self.text_output)
+        
+        self.img_to_display = f"/uploaded_files/{generated._result.candidates['content']['parts'][1]['function_call']['args']['image_name']}"
+        print(self.img_to_display)
+        
 
     def set_timeslice(self, value):
         self.timeslice = value[0]
@@ -63,6 +169,20 @@ class UserState(rx.State):
     def on_load(self):
         # We can start the recording immediately when the page loads
         return capture.start()
+    
+    @rx.var
+    def get_tts(self):
+        SPEAK_OPTIONS = {"text": "Hello, how can I help you today?"}
+        self.tts_output_file = "assets/tts_output.mp3"
+        options = SpeakOptions(
+            model="aura-asteria-en",
+        )
+
+        # response = deepgram.speak.v("1").save(self.tts_output_file, SPEAK_OPTIONS, options)
+        print("DEEPGRAM FINISHED RUNING AT ", self.tts_output_file)
+        # self.process_inputs = False
+        # self.process_outputs = False
+        return "assets/tts_output.mp3"#self.tts_output_file
 
 
 capture = AudioRecorderPolyfill.create(
@@ -131,6 +251,21 @@ def user_index() -> rx.Component:
                     UserState.processing,
                     rx.text("..."),
                 ),
+            ),
+            # rx.cond(
+            #    done_processing,
+            #    
+            # )
+            # rx.audio(
+            #     url=UserState.get_tts,
+            #     width="400px",
+            #     height="32px",   
+            # ),
+            #
+            #
+            rx.cond(
+                UserState.img_to_display != "",
+                rx.image(src=UserState.img_to_display, width="100px", height="auto"),
             ),
             style={"width": "100%", "> *": {"width": "100%"}},
         ),

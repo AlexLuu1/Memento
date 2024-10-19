@@ -123,10 +123,7 @@ class NewMemory(rx.State):
 
         self.generated_uuid = str(uuid.uuid4())
         
-        docs = f"""
-            {self.date}
-            {self.description}
-        """,  # TODO: add prompt engineering stuff
+        docs = f"""{self.date}|{self.description}""",  # TODO: add prompt engineering stuff
 
         collection.upsert(
             documents=docs,
@@ -173,10 +170,7 @@ class NewMemory(rx.State):
             )
             print("1st function old data", old_data)
 
-            docs = f"""
-                {old_data["documents"][0]}
-                {result.text}
-            """,  # TODO: add prompt engineering stuff
+            docs = f"""{old_data["documents"][0]}|{result.text}""",  # TODO: add prompt engineering stuff
 
             collection.upsert(
                 documents=docs,
