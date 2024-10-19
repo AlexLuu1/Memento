@@ -118,6 +118,7 @@ class NewMemory(rx.State):
         self.date = form_data["date"]
         self.description = form_data["description"]
 
+        # chroma run --path ./db_path --host localhost --port 8001
         collection = chromadb.HttpClient(host='localhost', port=8001).get_or_create_collection(name="vectordb", embedding_function=GeminiEmbeddingFunction())
 
         self.generated_uuid = str(uuid.uuid4())
@@ -132,6 +133,11 @@ class NewMemory(rx.State):
             metadatas=[{"filename": self.generated_uuid}],
             ids=[self.generated_uuid],
         )
+
+        old_data = collection.get(
+                ids=[self.generated_uuid]
+            )
+        print("1st function data", old_data)
 
         return rx.redirect(
             "/family"
@@ -162,11 +168,26 @@ class NewMemory(rx.State):
             )
             print(f"{result.text=}")
 
+            old_data = collection.get(
+                ids=[self.generated_uuid]
+            )
+            print("1st function old data", old_data)
+
+            docs = f"""
+                {old_data["documents"][0]}
+                {result.text}
+            """,  # TODO: add prompt engineering stuff
+
             collection.upsert(
-                documents=[result.text],
-                metadatas=[{"user": "1"}],
+                documents=docs,
+                metadatas=[{"filename": self.generated_uuid}],
                 ids=[self.generated_uuid],
             )
+
+            old_data = collection.get(
+                ids=[self.generated_uuid]
+            )
+            print("2nd function data", old_data)
 
 
 
@@ -197,7 +218,7 @@ def add_new_memory():
                     name="description",
                     placeholder="Enter description...",
                     type="text",
-                    required=False,
+                    required=True,
                     resize="both",
                     auto_height=True,
                     width="100%",
