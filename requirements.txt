@@ -1,3 +1,4 @@
 reflex==0.6.3
 reflex_audio_capture
 vapi_python
+pillow

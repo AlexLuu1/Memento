@@ -107,6 +107,23 @@ class NewMemory(rx.State):
         return rx.redirect(
             "/family"
         )
+    
+    async def handle_upload(self, files: list[rx.UploadFile]):
+        """Handle the upload of file(s).
+
+        Args:
+            files: The uploaded files.
+        """
+        for file in files:
+            upload_data = await file.read()
+            outfile = rx.get_upload_dir() / file.filename
+
+            # Save the file.
+            with outfile.open("wb") as file_object:
+                file_object.write(upload_data)
+
+            # Update the img var.
+            self.img.append(file.filename)
 
 
 def add_new_memory():
@@ -126,26 +143,34 @@ def add_new_memory():
                     type="text",
                     required=False,
                 ),
-                # rx.upload(
-                #     rx.vstack(
-                #         rx.button(
-                #             "Select File",
-                #             color="black",
-                #             bg="white",
-                #             border=f"1px solid black",
-                #         ),
-                #         rx.text(
-                #             "Drag and drop files here or click to select files"
-                #         ),
-                #     ),
-                #     id="upload1",
-                #     border=f"1px dotted black",
-                #     padding="5em",
-                # ),
+                rx.upload(
+                    rx.vstack(
+                        rx.button(
+                            "Select File",
+                            color="black",
+                            bg="white",
+                            border=f"1px solid black",
+                            type="button"
+                        ),
+                        rx.text(
+                            "Drag and drop files here or click to select files"
+                        ),
+                    ),
+                    id="upload1",
+                    border=f"1px dotted black",
+                    padding="5em",
+                ),
+                rx.hstack(
+                    rx.foreach(
+                        rx.selected_files("upload1"), rx.text
+                    )
+                ),
                 rx.button("Submit", type="submit"),
                 width="100%",
             ),
-            on_submit=NewMemory.handle_submit,
+            on_submit=[NewMemory.handle_submit, 
+                       NewMemory.handle_upload(rx.upload_files(upload_id="upload1"))
+                    ],
             reset_on_submit=True,
         ),
         rx.spacer(),
