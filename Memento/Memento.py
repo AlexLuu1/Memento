@@ -4,6 +4,9 @@ import reflex as rx
 
 from rxconfig import config
 
+from .user import user_index
+from .family import family_index, add_new_memory
+
 
 class State(rx.State):
     """The app state."""
@@ -12,28 +15,55 @@ class State(rx.State):
 
 
 def index() -> rx.Component:
-    # Welcome Page (Index)
     return rx.container(
-        rx.color_mode.button(position="top-right"),
         rx.vstack(
-            rx.heading("Welcome to Reflex!", size="9"),
-            rx.text(
-                "Get started by editing ",
-                rx.code(f"{config.app_name}/{config.app_name}.py"),
-                size="5",
+            rx.heading("Memento", 
+                size="9",
             ),
-            rx.link(
-                rx.button("Check out our docs!"),
-                href="https://reflex.dev/docs/getting-started/introduction/",
-                is_external=True,
+            rx.text(
+                "Stay connected with your family and cherish the memories of your loved ones!",
+                size="5",
             ),
             spacing="5",
             justify="center",
-            min_height="85vh",
+            min_height="40vh",
         ),
-        rx.logo(),
+        rx.hstack(
+            rx.button(
+                "User",
+                color_scheme="grass",
+                on_click=rx.redirect(
+                    "/user"
+                ),
+                size="4",
+            ),
+            rx.button(
+                "Family",
+                color_scheme="grass",
+                on_click=rx.redirect(
+                    "/family"
+                ),
+                size="4",
+            ),
+        ),
     )
 
 
-app = rx.App()
+style = {
+    "background_color": "#F5E0C3",
+}
+
+app = rx.App(
+    style=style,
+    theme=rx.theme(
+        appearance="light",
+        has_background=True,
+        radius="full",
+    )
+)
+
+
 app.add_page(index)
+app.add_page(user_index, route="/user")
+app.add_page(family_index, route="/family")
+app.add_page(add_new_memory, route="/family/new-memory")
