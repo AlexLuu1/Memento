@@ -2,12 +2,8 @@ import reflex as rx
 from rxconfig import config
 from reflex_audio_capture import AudioRecorderPolyfill, get_codec, strip_codec_part
 from urllib.request import urlopen
-from vapi_python import Vapi
 
 REF = "myaudio"
-
-vapi = Vapi(api_key='34b88d6b-ae2a-4106-954f-dd179a556dee')
-vapi.start(assistant_id="c2ecf489-09f7-4f37-9b0b-d106c95e1f2c")
 
 class UserState(rx.State):
     """The app state."""
@@ -46,15 +42,21 @@ class UserState(rx.State):
 
     def set_device_id(self, value):
         self.device_id = value
-        yield capture.stop()
-
+ 
     def on_error(self, err):
         print(err)
 
     def on_load(self):
         # We can start the recording immediately when the page loads
         return capture.start()
+    
+    def start_record(self):
+        #vapi.start(assistant_id="c2ecf489-09f7-4f37-9b0b-d106c95e1f2c")
+        return capture.start()
 
+    def stop_record(self):
+        #vapi.stop()
+        return capture.stop()
 
 capture = AudioRecorderPolyfill.create(
     id=REF,
@@ -131,7 +133,7 @@ def user_index() -> rx.Component:
                 rx.button("Stop Recording", on_click=capture.stop()),
                 rx.button(
                     "Start Recording",
-                    on_click=capture.start(),
+                    on_click=UserState.stop_record(),
                 ),
             ),
             rx.card(
