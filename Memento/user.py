@@ -34,7 +34,7 @@ class UserState(rx.State):
             try:
                 self.processing = True
                 yield
-                transcription = await client.audio.transcriptions.create(
+                transcription = client.audio.transcriptions.create(
                    file=(("temp." + audio_type, audio_data.read(), mime_type)), # Required audio file
                    model="whisper-large-v3-turbo", # Required model to use for transcription
                    prompt="Specify context or spelling",  # Optional
