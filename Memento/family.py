@@ -128,20 +128,36 @@ class NewMemory(rx.State):
 
 def add_new_memory():
     return rx.container(
-        rx.spacer(),
+        rx.vstack(
+            rx.spacer(),
+            rx.heading("Add A New Memory", size="8"),
+            rx.spacer(spacing="9"),
+        ),
         rx.form(
             rx.vstack(
-                rx.input(
-                    name="date",
-                    placeholder="Enter text...",
-                    type="text",
-                    required=True,
+                rx.text(
+                    "Enter the date this memory occurred:",
+                    size="5",
                 ),
                 rx.input(
+                    name="date",
+                    placeholder="Enter date...",
+                    type="date",
+                    required=True,
+                ),
+                rx.text(
+                    "Enter the description of the memory:",
+                    size="5",
+                ),
+                rx.text_area(
                     name="description",
-                    placeholder="Enter text...",
+                    placeholder="Enter description...",
                     type="text",
                     required=False,
+                ),
+                rx.text(
+                    "Upload a picture of the memory:",
+                    size="5",
                 ),
                 rx.upload(
                     rx.vstack(
