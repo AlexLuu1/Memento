@@ -3,3 +3,4 @@ reflex_audio_capture
 vapi_python
 pillow
 chromadb
+google.generativeai

@@ -4,6 +4,12 @@ from datetime import datetime
 
 from PIL import Image
 import requests
+import chromadb
+from chromadb import Documents, EmbeddingFunction, Embeddings
+import google.generativeai as genai
+import uuid
+
+genai.configure(api_key='AIzaSyBoWysd4slrqHZUjZe7i9PJPSl4YugAxeI')
 
 
 class FamilyState(rx.State):
@@ -93,16 +99,39 @@ def family_index():
     )
 
 
+class GeminiEmbeddingFunction(EmbeddingFunction):
+    def __call__(self, input: Documents) -> Embeddings:
+        model = 'models/embedding-001'
+        title = "Custom query"
+        return genai.embed_content(model=model,
+                                    content=input,
+                                    task_type="retrieval_document",
+                                    title=title)["embedding"]
 
 class NewMemory(rx.State):
     date = ""
     description = ""
-
-    form_data: dict = {}
+    generated_uuid = ""
 
     def handle_submit(self, form_data: dict):
-        date = form_data["date"]
-        description = form_data["description"]
+        self.date = form_data["date"]
+        self.description = form_data["description"]
+
+        collection = chromadb.HttpClient(host='localhost', port=8000).get_or_create_collection(name="vectordb", embedding_function=GeminiEmbeddingFunction())
+
+        self.generated_uuid = str(uuid.uuid4())
+        
+        docs = f"""
+            {self.date}
+            {self.description}
+        """,  # TODO: add prompt engineering stuff
+
+        collection.upsert(
+            documents=[docs],
+            metadata={"hnsw:space": "cosine"},
+            metadatas=[{"user": "1"}],
+            ids=[self.generated_uuid],
+        )
 
         return rx.redirect(
             "/family"
@@ -114,6 +143,8 @@ class NewMemory(rx.State):
         Args:
             files: The uploaded files.
         """
+        collection = chromadb.HttpClient(host='localhost', port=8000).get_or_create_collection(name="vectordb", embedding_function=GeminiEmbeddingFunction())
+
         for file in files:
             upload_data = await file.read()
             outfile = rx.get_upload_dir() / file.filename
