@@ -117,7 +117,7 @@ class NewMemory(rx.State):
         self.date = form_data["date"]
         self.description = form_data["description"]
 
-        collection = chromadb.HttpClient(host='localhost', port=8000).get_or_create_collection(name="vectordb", embedding_function=GeminiEmbeddingFunction())
+        collection = chromadb.HttpClient(host='localhost', port=8001).get_or_create_collection(name="vectordb", embedding_function=GeminiEmbeddingFunction())
 
         self.generated_uuid = str(uuid.uuid4())
         
@@ -127,9 +127,8 @@ class NewMemory(rx.State):
         """,  # TODO: add prompt engineering stuff
 
         collection.upsert(
-            documents=[docs],
-            metadata={"hnsw:space": "cosine"},
-            metadatas=[{"user": "1"}],
+            documents=docs,
+            metadatas=[{"filename": self.generated_uuid}],
             ids=[self.generated_uuid],
         )
 
@@ -143,7 +142,7 @@ class NewMemory(rx.State):
         Args:
             files: The uploaded files.
         """
-        collection = chromadb.HttpClient(host='localhost', port=8000).get_or_create_collection(name="vectordb", embedding_function=GeminiEmbeddingFunction())
+        collection = chromadb.HttpClient(host='localhost', port=8001).get_or_create_collection(name="vectordb", embedding_function=GeminiEmbeddingFunction())
 
         for file in files:
             upload_data = await file.read()
@@ -153,8 +152,6 @@ class NewMemory(rx.State):
             with outfile.open("wb") as file_object:
                 file_object.write(upload_data)
 
-            # Update the img var.
-            self.img.append(file.filename)
 
 
 def add_new_memory():
