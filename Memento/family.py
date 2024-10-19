@@ -154,6 +154,9 @@ def add_new_memory():
                     placeholder="Enter description...",
                     type="text",
                     required=False,
+                    resize="both",
+                    auto_height=True,
+                    width="100%",
                 ),
                 rx.text(
                     "Upload a picture of the memory:",
@@ -174,7 +177,7 @@ def add_new_memory():
                     ),
                     id="upload1",
                     border=f"1px dotted black",
-                    padding="5em",
+                    padding="3em",
                 ),
                 rx.hstack(
                     rx.foreach(
