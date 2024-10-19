@@ -1,0 +1,58 @@
+[33mWARNING[0m:  [19-10-2024 14:20:51] chroma_server_nofile is set to 65535, but this is less than current soft limit of 1048575. chroma_server_nofile will not be set.
+[32mINFO[0m:     [19-10-2024 14:20:51] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[36mDEBUG[0m:    [19-10-2024 14:20:51] Starting component System
+[36mDEBUG[0m:    [19-10-2024 14:20:51] Starting component OpenTelemetryClient
+[36mDEBUG[0m:    [19-10-2024 14:20:51] Starting component SqliteDB
+[36mDEBUG[0m:    [19-10-2024 14:20:51] Starting component QuotaEnforcer
+[36mDEBUG[0m:    [19-10-2024 14:20:51] Starting component Posthog
+[36mDEBUG[0m:    [19-10-2024 14:20:51] Starting component SimpleRateLimitEnforcer
+[36mDEBUG[0m:    [19-10-2024 14:20:51] Starting component LocalSegmentManager
+[36mDEBUG[0m:    [19-10-2024 14:20:51] Starting component LocalExecutor
+[36mDEBUG[0m:    [19-10-2024 14:20:51] Starting component SegmentAPI
+[32mINFO[0m:     [19-10-2024 14:20:51] Started server process [[36m74626[0m]
+[32mINFO[0m:     [19-10-2024 14:20:51] Waiting for application startup.
+[32mINFO[0m:     [19-10-2024 14:20:51] Application startup complete.
+[32mINFO[0m:     [19-10-2024 14:20:51] Uvicorn running on [1mhttp://localhost:8001[0m (Press CTRL+C to quit)
+[32mINFO[0m:     [19-10-2024 14:22:07] ::1:60483 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 14:22:07] ::1:60483 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 14:22:07] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 14:22:07] ::1:60484 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 14:22:08] ::1:60484 - "GET /api/v1/pre-flight-checks HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 14:22:08] Starting component PersistentLocalHnswSegment
+[32mINFO[0m:     [19-10-2024 14:22:08] ::1:60484 - "POST /api/v1/collections/fc5efe6c-3144-422a-9656-2daf7dded3c2/upsert HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 14:22:08] ::1:60491 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 14:22:08] ::1:60491 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 14:22:08] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 14:22:08] ::1:60492 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 14:24:12] ::1:60522 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 14:24:12] ::1:60522 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 14:24:12] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 14:24:12] ::1:60523 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 14:24:12] ::1:60523 - "GET /api/v1/pre-flight-checks HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 14:24:12] ::1:60523 - "POST /api/v1/collections/fc5efe6c-3144-422a-9656-2daf7dded3c2/upsert HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 14:24:12] ::1:60530 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 14:24:12] ::1:60530 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 14:24:12] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 14:24:12] ::1:60531 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 14:25:01] ::1:60561 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 14:25:01] ::1:60561 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 14:25:01] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 14:25:01] ::1:60562 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 14:25:02] ::1:60562 - "GET /api/v1/pre-flight-checks HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 14:25:02] ::1:60562 - "POST /api/v1/collections/fc5efe6c-3144-422a-9656-2daf7dded3c2/upsert HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 14:25:02] ::1:60567 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 14:25:02] ::1:60567 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 14:25:02] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 14:25:02] ::1:60568 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 14:28:21] ::1:60610 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 14:28:21] ::1:60610 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 14:28:21] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 14:28:21] ::1:60611 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 14:28:21] ::1:60611 - "GET /api/v1/pre-flight-checks HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 14:28:21] ::1:60611 - "POST /api/v1/collections/fc5efe6c-3144-422a-9656-2daf7dded3c2/upsert HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 14:28:21] ::1:60618 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 14:28:21] ::1:60618 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 14:28:21] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 14:28:21] ::1:60619 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 14:28:25] ::1:60619 - "GET /api/v1/pre-flight-checks HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 14:28:25] ::1:60619 - "POST /api/v1/collections/fc5efe6c-3144-422a-9656-2daf7dded3c2/upsert HTTP/1.1" 200

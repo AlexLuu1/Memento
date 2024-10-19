@@ -10,6 +10,7 @@ import google.generativeai as genai
 import uuid
 
 genai.configure(api_key='AIzaSyBoWysd4slrqHZUjZe7i9PJPSl4YugAxeI')
+text_to_img_model = genai.GenerativeModel("gemini-1.5-flash")
 
 
 class FamilyState(rx.State):
@@ -151,6 +152,21 @@ class NewMemory(rx.State):
             # Save the file.
             with outfile.open("wb") as file_object:
                 file_object.write(upload_data)
+            
+            # Get text from image with Gemini
+            myfile = genai.upload_file(outfile)
+            print(f"{myfile=}")
+
+            result = text_to_img_model.generate_content(
+                [myfile, "\n\n", "Please give me a concise description of this image"]
+            )
+            print(f"{result.text=}")
+
+            collection.upsert(
+                documents=[result.text],
+                metadatas=[{"user": "1"}],
+                ids=[self.generated_uuid],
+            )
 
 
 
