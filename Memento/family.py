@@ -1,6 +1,7 @@
 import reflex as rx
 from rxconfig import config
 from datetime import datetime
+import os
 
 from PIL import Image
 import io
@@ -9,16 +10,10 @@ import chromadb
 from chromadb import Documents, EmbeddingFunction, Embeddings
 import google.generativeai as genai
 import uuid
-from typing import List, TypedDict  # Ensure TypedDict is imported
+from typing import List, TypedDict
 
-from .components import *  # Import components after defining MemoryEvent
+from .components import * 
 
-
-# Define a TypedDict for Memory Events
-class MemoryEvent(TypedDict):
-    date: str  # Pre-formatted date string, e.g., "January 01, 2023"
-    description: str
-    image_filename: str
 
 
 # Custom Heading Component
@@ -45,7 +40,7 @@ def create_themed_page(content: rx.Component) -> rx.Component:
         create_header(),
         content,
         create_footer(),
-        background_color="#F3F4F6",  # Consistent background
+        background_color="#F3F4F6",
         font_family=(
             'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, '
             '"Helvetica Neue", Arial, "Noto Sans", sans-serif'
@@ -56,7 +51,7 @@ def create_themed_page(content: rx.Component) -> rx.Component:
 # Configure Google Generative AI
 # Replace with your actual API key securely
 # **Important**: Use environment variables in production
-genai.configure(api_key='YOUR_API_KEY')  # **Important**: Replace securely
+genai.configure(api_key=os.environ.get('GOOGLE_API_KEY'))
 text_to_img_model = genai.GenerativeModel("gemini-1.5-flash")
 
 
@@ -75,7 +70,7 @@ class GeminiEmbeddingFunction(EmbeddingFunction):
 
 # State Management for Family Memories
 class FamilyState(rx.State):
-    data: List[MemoryEvent] = []  # Explicit type annotation
+    data: List[dict[str, str]] = []
 
     def get_data(self) -> None:
         self.data = []
@@ -93,14 +88,11 @@ class FamilyState(rx.State):
         for doc, metadata in zip(documents, metadatas):
             try:
                 date_str, description, image_summary = doc.split('|', 2)
-                # Parse and format the date string
                 date_obj = datetime.strptime(date_str, "%Y-%m-%d")
-                date_formatted = date_obj.strftime(
-                    "%B %d, %Y")  # e.g., "January 01, 2023"
-                # Ensure metadata['filename'] is a string
+                date_formatted = date_obj.strftime("%B %d, %Y")
                 image_filename = f"{str(metadata['filename'])}.jpg"
                 self.data.append({
-                    "date": date_formatted,  # Store as pre-formatted string
+                    "date": date_formatted,
                     "description": description,
                     "image_filename": image_filename
                 })
@@ -110,99 +102,86 @@ class FamilyState(rx.State):
 
         # Sort the data by date in descending order (newest first)
         self.data.sort(key=lambda x: x["date"], reverse=True)
-
         print(self.data)
 
 
 # Timeline Event Component
-def TimelineEvent(event_data: MemoryEvent) -> rx.Component:
-    # 'date' is already a formatted string, use it directly
+# Timeline Event Component
+def TimelineEvent(event_data: dict[str, str]) -> rx.Component:
     date_formatted = event_data["date"]
+    filename = event_data["image_filename"]
 
-    # Ensure 'image_filename' is a string and 'get_upload_url' returns a string
-    image_url = str(rx.get_upload_url(str(event_data["image_filename"])))
+    # Generate the image URL and set a placeholder in case of error
+    image_url = rx.get_upload_url(filename)
+    placeholder_url = "/static/placeholder.jpg"
 
     return rx.box(
-        rx.flex(
+        rx.hstack(
+            # Left side: Date (hidden on mobile)
             rx.box(
-                # Left side: Date (hidden on mobile)
-                rx.box(
-                    rx.text(
-                        date_formatted,
-                        font_weight="600",
-                        font_size="1rem"
-                    ),
-                    align_self="flex-start",
-                    width="150px",  # Fixed width for dates
-                    text_align="right",
-                    padding_right="1rem",
+                rx.text(
+                    date_formatted,
+                    font_weight="600",
+                    font_size="1rem",
                     color="#333",
-                    display={
-                        "base": "none",
-                        "md": "block"  # Visible on medium and larger screens
-                    },
+                    text_align="right",
                 ),
-                # Middle: Connector Line and Marker
-                rx.box(
-                    rx.box(
-                        width="10px",
-                        height="10px",
-                        border_radius="50%",
-                        background_color="#74452f",
-                        margin="0.5rem 0",
-                        z_index="1",
-                    ),
-                    rx.box(
-                        width="2px",
-                        height="100%",
-                        background_color="#ccc",
-                        margin="0 auto",
-                    ),
-                    display="flex",
-                    flex_direction="column",
-                    align_items="center",
-                    position="relative",
-                ),
-                # Right side: Content
-                rx.box(
-                    rx.text(
-                        date_formatted,
-                        font_weight="600",
-                        font_size="1rem",
-                        display={
-                            "base": "block",
-                            "md": "none"  # Visible only on small screens
-                        },
-                        margin_bottom="0.5rem",
-                        color="#333"
-                    ),
-                    rx.image(
-                        src=image_url,
-                        width="100%",
-                        height="auto",
-                        border_radius="0.5rem",
-                        margin_bottom="0.5rem",
-                        object_fit="cover",
-                    ),
-                    rx.text(
-                        event_data["description"],
-                        padding="0.5rem 1rem",
-                        color="#555"
-                    ),
-                    width={
-                        "base": "100%",
-                        "md": "calc(100% - 160px)"
-                    },  # Full width on mobile
-                ),
+                width="175px",
+                padding_right="1rem",
+                display={
+                    "base": "none",
+                    "md": "block"
+                },
             ),
-            flex_direction={
-                "base": "column",
-                "md": "row"
-            },
+            # Middle: Connector Line and Marker
+            rx.box(
+                rx.box(
+                    width="10px",
+                    height="10px",
+                    border_radius="50%",
+                    background_color="#74452f",
+                    margin="0 auto",
+                    z_index="1",
+                ),
+                rx.box(
+                    width="2px",
+                    flex="1",
+                    background_color="#ccc",
+                    margin="0 auto",
+                ),
+                display="flex",
+                flex_direction="column",
+                align_items="center",
+                position="relative",
+                width="20px",  # Set a fixed width for the marker column
+            ),
+            # Right side: Content
+            rx.box(
+                rx.image(
+                    src=image_url,
+                    fallback=placeholder_url,
+                    width="100%",
+                    height="auto",
+                    border_radius="1rem",
+                    margin_bottom="0.5rem",
+                    object_fit="cover",
+                ),
+                rx.text(
+                    event_data["description"],
+                    padding="0.5rem 1rem",
+                    color="#555",
+                ),
+                flex="1",  # Allow content to take up remaining space
+            ),
             align_items="flex-start",
-            margin_bottom="2rem",
-            position="relative",
+            width="100%",
         ),
+        flex_direction={
+            "base": "column",
+            "md": "row"
+        },
+        margin_bottom="2rem",
+        position="relative",
         width="100%",
     )
 
@@ -219,7 +198,7 @@ def family_index():
                 margin_bottom="1rem"
             ),
             rx.text(
-                "Capture and relive your most cherished moments with your loved ones! Share anything ",
+                "Capture and relive your most cherished moments with your loved ones! Share anything.",
                 font_size="1.25rem",
                 margin_bottom="1rem",
             ),
@@ -235,32 +214,25 @@ def family_index():
                 display="inline-block",
             ),
         ),
-        rx.box(
+        rx.vstack(
             rx.foreach(
                 FamilyState.data,
-                TimelineEvent  # Use the TimelineEvent component
+                TimelineEvent
             ),
             display="flex",
             flex_direction="column",
             position="relative",
-            padding_left={
-                "base": "0",
-                "md": "2rem"  # Space for the timeline markers on larger screens
-            },
             _before={
                 "content": '""',
                 "position": "absolute",
-                "left": {
-                    "base": "10px",
-                    "md": "75px"
-                },  # Align with the center of the connector
                 "top": "0",
                 "width": "2px",
                 "height": "100%",
                 "background_color": "#ccc",
+                "left": "228px"
             },
             width="100%",
-            max_width="800px",  # Adjusted width for better readability
+            max_width="1000px",
             margin_left="auto",
             margin_right="auto",
             padding="2rem",
@@ -276,7 +248,7 @@ def family_index():
 
 # State Management for Adding a New Memory
 class NewMemory(rx.State):
-    date: str = ""  # Explicit type annotations
+    date: str = ""
     description: str = ""
     generated_uuid: str = ""
 
@@ -294,7 +266,7 @@ class NewMemory(rx.State):
 
         self.generated_uuid = str(uuid.uuid4())
 
-        # Added a trailing pipe for consistency
+        # Store document with date and description
         docs = f"{self.date}|{self.description}|",
 
         collection.upsert(
@@ -303,13 +275,9 @@ class NewMemory(rx.State):
             ids=[self.generated_uuid],
         )
 
-        old_data = collection.get(ids=[self.generated_uuid])
-        print("1st function data", old_data)
-
         return rx.redirect("/family")
 
     async def handle_upload(self, files: List[rx.UploadFile]) -> None:
-        """Handle the upload of file(s)."""
         collection = chromadb.HttpClient(
             host='localhost', port=8001
         ).get_or_create_collection(
@@ -321,9 +289,6 @@ class NewMemory(rx.State):
             upload_data = await file.read()
             outfile = f"{rx.get_upload_dir()}/{self.generated_uuid}.jpg"
 
-            print(outfile)
-
-            # Save the image
             try:
                 image = Image.open(io.BytesIO(upload_data))
                 if image.mode != "RGB":
@@ -333,27 +298,19 @@ class NewMemory(rx.State):
                 print(f"Error saving image: {e}")
                 continue
 
-            # Get text from image with Gemini
+            # Append the image description to the existing document
+            result_text = "No description available."  # Default value
+
             try:
                 myfile = genai.upload_file(outfile, mime_type="image/jpeg")
-                print(f"{myfile=}")
-
                 result = text_to_img_model.generate_content(
                     [myfile, "\n\n", "Please give me a description of this image as detailed as possible"]
                 )
-                print(f"{result.text=}")
+                result_text = result.get("text", "No description available.")
             except Exception as e:
                 print(f"Error generating image description: {e}")
-                result = {"text": "No description available."}
 
             old_data = collection.get(ids=[self.generated_uuid])
-            print("1st function old data", old_data)
-
-            # Ensure 'result["text"]' is a string
-            result_text = str(result["text"])
-
-            # Append the image description to the existing document
-            # Ensure plain strings
             docs = f"{old_data['documents'][0]}|{result_text}",
 
             collection.upsert(
@@ -361,9 +318,6 @@ class NewMemory(rx.State):
                 metadatas=[{"filename": self.generated_uuid}],
                 ids=[self.generated_uuid],
             )
-
-            old_data = collection.get(ids=[self.generated_uuid])
-            print("2nd function data", old_data)
 
 
 # Page for Adding a New Memory
@@ -426,9 +380,7 @@ def add_new_memory():
                                 ),
                                 rx.foreach(
                                     rx.selected_files("upload1"),
-                                    # Display file names
-                                    lambda file: rx.text(
-                                        file, color="#4B5563")  # Treat 'file' as a string
+                                    lambda file: rx.text(file, color="#4B5563")
                                 ),
                             ),
                             id="upload1",
@@ -450,8 +402,7 @@ def add_new_memory():
                 ),
                 on_submit=[
                     NewMemory.handle_submit,
-                    NewMemory.handle_upload(
-                        rx.upload_files(upload_id="upload1"))
+                    NewMemory.handle_upload(rx.upload_files(upload_id="upload1"))
                 ],
                 width="100%",
                 max_width="600px",

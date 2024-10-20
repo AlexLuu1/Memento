@@ -462,4 +462,3 @@ app = rx.App(
 )
 
 app.add_page(index)
-app.add_page(user_index, route="/user")

@@ -15,15 +15,37 @@ import chromadb
 
 from chromadb import Documents, EmbeddingFunction, Embeddings
 import google.generativeai as genai
+import re
 
-# Initialize the Groq client
-client = Groq(api_key="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")
-deepgram = DeepgramClient("4186faa1b840c8c63f87d22f0f5d6d744ce9f100")
-genai.configure(api_key='AIzaSyBoWysd4slrqHZUjZe7i9PJPSl4YugAxeI')
+from .components import *
+
+client = Groq(api_key=os.environ['GROQ_API_KEY'])
+deepgram = DeepgramClient(os.environ['DEEPGRAM_API_KEY'])
+genai.configure(api_key=os.environ['GOOGLE_API_KEY'])
 
 REF = "myaudio"
 
+# Add the create_themed_page function
+def create_custom_heading(heading_type, font_size, margin_bottom, heading_text):
+    return rx.heading(
+        heading_text,
+        font_weight="600",
+        margin_bottom=margin_bottom,
+        font_size=font_size,
+        line_height="1.75rem",
+        as_=heading_type,
+    )
 
+def create_themed_page(content):
+    """Wrap the given content with header and footer, applying the theme."""
+    return rx.box(
+        create_header(),
+        content,
+        create_footer(),
+        background_color="#F3F4F6",  # Consistent background
+        font_family='system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif',
+        width="100%"
+    )
 class GeminiEmbeddingFunction(EmbeddingFunction):
     def __call__(self, input: Documents) -> Embeddings:
         model = 'models/embedding-001'
@@ -40,7 +62,6 @@ class UserState(rx.State):
     has_error: bool = False
     processing: bool = False
     transcript: list[str] = []
-    timeslice: int = 0
     device_id: str = ""
     use_mp3: bool = True
     tts_output_file: str = ""
@@ -48,7 +69,14 @@ class UserState(rx.State):
     img_to_display: str = ""
     text_output: str = ""
     filenum: int = 0
-    # process_llm: bool = False
+
+    history: list[tuple[str, str]] = []
+
+    def get_data(self):
+        self.transcript = []
+        self.text_output = ""
+        self.img_to_display = ""
+        self.history = []
 
     async def on_data_available(self, chunk: str):
         mime_type, _, codec = get_codec(chunk).partition(";")
@@ -93,7 +121,6 @@ class UserState(rx.State):
         # Iterate through the
         for i, (doc, metadata) in enumerate(zip(documents, metadatas)):
             # Split the document into date and description
-            print(doc.split('|', 2))
             date, description, image_summary = doc.split('|', 2)
             filename = metadata["filename"]
 
@@ -163,19 +190,37 @@ class UserState(rx.State):
             tools=[fileNameGrabber]
         )
 
-        print(self.transcript)
-        generated = model.generate_content(" ".join(self.transcript))
-        print(generated)
-        self.text_output = generated.candidates[-1].content.parts[0].text
+        # Get History
+        history = []
+        for item in self.history:
+            history.append({"role": "user", "parts": item[0]})
+            history.append({"role": "model", "parts": item[1]})
 
-        text = generated.candidates[-1].content.parts[1].function_call.__str__()
-        import re
-        pattern = r'string_value:\s*"([a-f0-9-]+)"'
-        self.img_to_display = f"{re.search(pattern, text).group(1)}.jpg"
-        print("Image Name:", self.img_to_display)
+        # Reset
+        self.text_output = ""
+        self.img_to_display = ""
+        
+        # Run LLM
+        chat = model.start_chat(
+            history=history
+        ) 
+        response = chat.send_message(self.transcript[-1])
 
-    def set_timeslice(self, value):
-        self.timeslice = value[0]
+        # Get Text
+        self.text_output = response.candidates[-1].content.parts[0].text
+        print(self.text_output)
+
+        # Save history
+        self.history.append((self.transcript[-1], self.text_output))
+
+        # Get image tool call
+        if len(response.candidates[-1].content.parts) > 1:
+            text = response.candidates[-1].content.parts[1].function_call.__str__()
+            pattern = r'string_value:\s*"([a-f0-9-]+)"'
+            self.img_to_display = f"{re.search(pattern, text).group(1)}.jpg"
+            print("Image Name:", self.img_to_display)
+        else:
+            self.img_to_display = ""
 
     def set_device_id(self, value):
         self.device_id = value
@@ -189,7 +234,8 @@ class UserState(rx.State):
         return capture.start()
 
     def reset_output(self):
-        self.text_output = ""
+        # self.text_output = ""
+        # self.img_to_display = ""
         self.filenum += 1
 
     @rx.var(cache=True)
@@ -214,7 +260,6 @@ capture = AudioRecorderPolyfill.create(
     id=REF,
     on_data_available=UserState.on_data_available,
     on_error=UserState.on_error,
-    timeslice=UserState.timeslice,
     device_id=UserState.device_id,
     use_mp3=UserState.use_mp3,
 )
@@ -235,71 +280,120 @@ def input_device_select():
         on_change=UserState.set_device_id,
     )
 
-
+@rx.page(on_load=UserState.get_data, route="/user")
 def user_index() -> rx.Component:
-    return rx.container(
+    def mic_button(is_recording: bool):
+        return rx.button(
+            rx.icon(
+                tag="mic",
+                color="white",
+                size=32,  # Increased icon size
+            ),
+            on_click=capture.stop() if is_recording else capture.start(),
+            bg="red" if is_recording else "blue.500",
+            color="white",
+            border_radius="full",
+            width="80px",  # Set a fixed width
+            height="80px",  # Set a fixed height equal to width for perfect circle
+            p="0",  # Remove padding
+            _hover={"bg": "red.600" if is_recording else "blue.600"},
+            is_loading=is_recording,
+            spinner_placement="center",
+        )
+
+    content = rx.center(
         rx.vstack(
-            rx.heading("OpenAI Whisper Demo"),
-            rx.card(
-                rx.vstack(
-                    f"Timeslice: {UserState.timeslice} ms",
-                    rx.slider(
-                        min=0,
-                        max=10000,
-                        value=[UserState.timeslice],
-                        on_change=UserState.set_timeslice,
-                    ),
-                    rx.cond(
-                        capture.media_devices,
-                        input_device_select(),
-                    ),
-                ),
+            create_custom_heading(
+                heading_type="h2",
+                font_size="2.5rem",
+                margin_bottom="0rem",
+                heading_text="Learn What Family Is Doing!",
             ),
             capture,
-            rx.text(f"Recorder Status: {capture.recorder_state}"),
-            rx.cond(
-                capture.is_recording,
-                rx.button("Stop Recording", on_click=capture.stop()),
-                rx.button(
-                    "Start Recording",
-                    on_click=capture.start(),
+            rx.divider(width="100%", border_color="#A9A9A9", border_width="2px", margin_y="1.5rem"),
+            rx.box(
+                rx.cond(
+                    capture.is_recording,
+                    mic_button(True),
+                    mic_button(False)
                 ),
+                margin_y="2em",  # Add some vertical margin
             ),
-            rx.card(
-                rx.text("Transcript"),
-                rx.divider(),
-                rx.foreach(
-                    UserState.transcript,
-                    rx.text,
+            rx.vstack(
+                rx.cond(
+                    UserState.transcript[-1] != "",
+                    rx.box(
+                        rx.text("You: ", font_size="1.2rem", font_weight="bold"),
+                        rx.text(UserState.transcript[-1], font_size="1.1rem"),
+                        rx.cond(
+                            UserState.processing,
+                            rx.spinner(color="blue", size="sm"),
+                        ),
+                        border_radius="10px",
+                        width="100%",
+                        margin_y="12px",
+                        padding="16px",
+                        border_color="#e0e0e0",
+                        border_style="solid",
+                        border_width="1px",
+                        bg="gray.50",
+                    ),
                 ),
                 rx.cond(
-                    UserState.processing,
-                    rx.text("..."),
+                    UserState.img_to_display != "",
+                    rx.image(src=rx.get_upload_url(UserState.img_to_display), width="100%", height="auto"),
                 ),
-            ),
-            rx.cond(
-                UserState.img_to_display != "",
-                rx.image(src=rx.get_upload_url(UserState.img_to_display), width="500px", height="auto"),
-            ),
-            rx.cond(
-                UserState.text_output != "",
-                rx.audio(
-                    url=rx.get_upload_url(UserState.get_tts),
-                    width="0px",
-                    height="0px",
-                    playing=True,
-                    on_ended=UserState.reset_output
+                rx.cond(
+                    UserState.text_output != "",
+                    rx.audio(
+                        url=rx.get_upload_url(UserState.get_tts),
+                        width="0px",
+                        height="0px",
+                        playing=True,
+                        on_ended=UserState.reset_output
+                    ),
                 ),
+                rx.cond(
+                    UserState.text_output != "",
+                    rx.box(
+                        rx.text("Assistant: ", font_size="1.2rem", font_weight="bold"),
+                        rx.text(UserState.text_output, font_size="1.1rem"),
+                        border_radius="10px",
+                        width="100%",
+                        margin_y="12px",
+                        padding="16px",
+                        border_color="#e0e0e0",
+                        border_style="solid",
+                        border_width="1px",
+                        bg="blue.50",
+                    ),
+                    rx.box(
+                        rx.text("Assistant: ", font_size="1.2rem", font_weight="bold"),
+                        border_radius="10px",
+                        width="100%",
+                        margin_y="12px",
+                        padding="16px",
+                        border_color="#e0e0e0",
+                        border_style="solid",
+                        border_width="1px",
+                        bg="blue.50",
+                    ),
+                    
+                ),
+                width="100%",
+                spacing="1em",
+                align_items="stretch",
             ),
-            rx.cond(
-                UserState.text_output != "",
-                rx.text(UserState.text_output),
-            ),
-            style={"width": "100%", "> *": {"width": "100%"}},
+            width="100%",
+            max_width="1000px",
+            spacing="1.5em",
+            align_items="center",
         ),
-        size="1",
-        margin_y="2em",
+        width="100%",
+        padding="2em",
     )
+
+    return create_themed_page(content)
 
 
 # # Add state and page to the app.
