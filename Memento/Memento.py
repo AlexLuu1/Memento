@@ -7,27 +7,13 @@ from rxconfig import config
 from .user import user_index
 from .family import family_index, add_new_memory
 
+from .components import *
+
 
 class State(rx.State):
     """The app state."""
 
     ...
-
-
-def create_navigation_link(link_text, path):
-    """Create a navigation link with hover effects and specific padding."""
-    return rx.el.a(
-        link_text,
-        href=path,
-        font_size="1.25rem",
-        _hover={"color": "#ffffff"},
-        padding_left="0.75rem",
-        padding_right="0.75rem",
-        padding_top="0.5rem",
-        padding_bottom="0.5rem",
-        color="#ffffff",
-    )
-
 
 def create_custom_heading(
     heading_type, font_size, margin_bottom, heading_text
@@ -128,18 +114,6 @@ def create_feature_card(title, description):
     )
 
 
-def create_footer_link(link_text):
-    """Create a footer link with hover effects."""
-    return rx.el.a(
-        link_text, href="#", _hover={"color": "#D1D5DB"}
-    )
-
-
-def create_footer_list_item(link_text):
-    """Create a list item for footer links."""
-    return rx.el.li(create_footer_link(link_text=link_text))
-
-
 def create_social_icon(alt_text, icon_tag):
     """Create a social media icon with specified dimensions."""
     return rx.icon(
@@ -161,60 +135,55 @@ def create_social_link(icon_alt, icon_tag):
     )
 
 
-def create_logo_with_text():
-    """Create a logo with text for the header."""
-    return rx.flex(
-        rx.image(
-            src="/logo.png",
-            alt="logo",
-            height="4.5rem",
-            margin_right="0.75rem",
-            width="4.5rem",
-        ),
-        rx.text.span(
-            "Memento",
-            font_weight="600",
-            color="#ffffff",
-            font_size="2rem",
-            line_height="1.75rem",
-        ),
-        display="flex",
-        align_items="center",
-    )
-
-
-def create_header():
-    """Create the main header with logo and navigation links."""
-    return rx.flex(
-        create_logo_with_text(),
-        rx.flex(
-            create_navigation_link(link_text="Home", path="/"),
-            create_navigation_link(link_text="User", path="/user"),
-            create_navigation_link(link_text="Family", path="/family"),
-            create_navigation_link(link_text="About", path="/"),
-            display="flex",
-            align_items="center",
-        ),
-        width="100%",
-        style=rx.breakpoints(
-            {
-                "640px": {"max-width": "640px"},
-                "768px": {"max-width": "768px"},
-                "1024px": {"max-width": "1024px"},
-                "1280px": {"max-width": "1280px"},
-                "1536px": {"max-width": "1536px"},
-            }
-        ),
-        display="flex",
-        align_items="center",
-        justify_content="space-between",
-        margin_left="auto",
-        margin_right="auto",
-        padding_left="1.5rem",
-        padding_right="1.5rem",
-        padding_top="0.75rem",
-        padding_bottom="0.75rem",
-    )
+# def create_header():
+#     """Create the main header with logo and navigation links."""
+#     return rx.flex(
+#         rx.flex(
+#             rx.image(
+#                 src="/logo.png",
+#                 alt="logo",
+#                 height="4.5rem",
+#                 margin_right="0.75rem",
+#                 width="4.5rem",
+#             ),
+#             rx.text.span(
+#                 "Memento",
+#                 font_weight="600",
+#                 color="#ffffff",
+#                 font_size="2rem",
+#                 line_height="1.75rem",
+#             ),
+#             display="flex",
+#             align_items="center",
+#         ),
+#         rx.flex(
+#             create_navigation_link(link_text="Home", path="/"),
+#             create_navigation_link(link_text="User", path="/user"),
+#             create_navigation_link(link_text="Family", path="/family"),
+#             create_navigation_link(link_text="About", path="/"),
+#             display="flex",
+#             align_items="center",
+#         ),
+#         width="100%",
+#         style=rx.breakpoints(
+#             {
+#                 "640px": {"max-width": "640px"},
+#                 "768px": {"max-width": "768px"},
+#                 "1024px": {"max-width": "1024px"},
+#                 "1280px": {"max-width": "1280px"},
+#                 "1536px": {"max-width": "1536px"},
+#             }
+#         ),
+#         display="flex",
+#         align_items="center",
+#         justify_content="space-between",
+#         margin_left="auto",
+#         margin_right="auto",
+#         padding_left="1.5rem",
+#         padding_right="1.5rem",
+#         padding_top="0.75rem",
+#         padding_bottom="0.75rem",
+#     )
 
 
 def create_get_started_button():
@@ -418,60 +387,6 @@ def create_main_content():
         ),
     )
 
-
-def create_footer_logo_section():
-    """Create the footer logo section with image and text."""
-    return rx.box(
-        rx.image(
-            src="https://reflex-hosting-dev-flexgen.s3.us-west-2.amazonaws.com/replicate/1k9GU5ddAdpBNdINvwefyW1yDL2vpb6zt8NfNyw4MLaDODRnA/out-0.webp",
-            alt="Reflex logo",
-            margin_bottom="1rem",
-        ),
-        rx.text(
-            "Memento - Capturing family moments since 2023",
-            font_size="0.875rem",
-            line_height="1.25rem",
-        ),
-        margin_bottom=rx.breakpoints(
-            {"0px": "1.5rem", "768px": "0"}
-        ),
-        width=rx.breakpoints(
-            {"0px": "100%", "768px": "33.333333%"}
-        ),
-    )
-
-
-def create_footer():
-    """Create the complete footer section with content and copyright notice."""
-    return rx.box(
-        # create_footer_content(),
-        rx.box(
-            rx.text("© 2024 Memento. All rights reserved."),
-            border_color="#374151",
-            border_top_width="1px",
-            margin_top="2rem",
-            padding_top="2rem",
-            text_align="center",
-            font_size="0.875rem",
-            line_height="1.25rem",
-        ),
-        width="100%",
-        style=rx.breakpoints(
-            {
-                "640px": {"max-width": "640px"},
-                "768px": {"max-width": "768px"},
-                "1024px": {"max-width": "1024px"},
-                "1280px": {"max-width": "1280px"},
-                "1536px": {"max-width": "1536px"},
-            }
-        ),
-        margin_left="auto",
-        margin_right="auto",
-        padding_left="1.5rem",
-        padding_right="1.5rem",
-    )
-
-
 def create_page_layout():
     """Create the overall page layout including header, main content, and footer."""
     return rx.box(
@@ -548,4 +463,3 @@ app = rx.App(
 
 app.add_page(index)
 app.add_page(user_index, route="/user")
-app.add_page(add_new_memory, route="/family/new-memory")
