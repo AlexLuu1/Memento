@@ -11,6 +11,8 @@ import google.generativeai as genai
 import uuid
 from typing import List
 
+from .components import *
+
 genai.configure(api_key='AIzaSyBoWysd4slrqHZUjZe7i9PJPSl4YugAxeI')
 text_to_img_model = genai.GenerativeModel("gemini-1.5-flash")
 
@@ -157,7 +159,7 @@ class NewMemory(rx.State):
             print(f"{myfile=}")
 
             result = text_to_img_model.generate_content(
-                [myfile, "\n\n", "Please give me a concise description of this image"]
+                [myfile, "\n\n", "Please give me a description of this image as detailed as possible"]
             )
             print(f"{result.text=}")
 
@@ -180,7 +182,7 @@ class NewMemory(rx.State):
             print("2nd function data", old_data)
 
 
-
+@rx.page(route="/family/new-memory")
 def add_new_memory():
     return rx.container(
         rx.vstack(
