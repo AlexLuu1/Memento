@@ -275,7 +275,7 @@ def user_index() -> rx.Component:
             ),
             rx.cond(
                 UserState.img_to_display != "",
-                rx.image(src=rx.get_upload_url(UserState.img_to_display), width="100px", height="auto"),
+                rx.image(src=rx.get_upload_url(UserState.img_to_display), width="500px", height="auto"),
             rx.cond(
                 UserState.process_llm,
                 rx.audio(
