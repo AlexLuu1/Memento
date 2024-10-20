@@ -343,7 +343,12 @@ def user_index() -> rx.Component:
                 ),
                 rx.cond(
                     UserState.img_to_display != "",
-                    rx.image(src=rx.get_upload_url(UserState.img_to_display), width="100%", height="auto"),
+                    rx.image(
+                        src=rx.get_upload_url(UserState.img_to_display), 
+                        width="100%", 
+                        height="auto",
+                        border_radius="10px"
+                    ),
                 ),
                 rx.cond(
                     UserState.is_talking,
