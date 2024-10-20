@@ -14,11 +14,12 @@ class State(rx.State):
     ...
 
 
-def create_navigation_link(link_text):
+def create_navigation_link(link_text, path):
     """Create a navigation link with hover effects and specific padding."""
     return rx.el.a(
         link_text,
-        href="#",
+        href=path,
+        font_size="1.25rem",
         _hover={"color": "#ffffff"},
         padding_left="0.75rem",
         padding_right="0.75rem",
@@ -42,7 +43,7 @@ def create_custom_heading(
     )
 
 
-def create_centered_heading(heading_text):
+def create_centered_heading(heading_text, color):
     """Create a centered heading with specific styling for section titles."""
     return rx.heading(
         heading_text,
@@ -52,6 +53,7 @@ def create_centered_heading(heading_text):
         line_height="2.25rem",
         text_align="center",
         as_="h2",
+        color=color
     )
 
 
@@ -70,7 +72,7 @@ def create_icon(alt_text, icon_tag):
 
 def create_gray_text(text_content):
     """Create a text element with a specific gray color."""
-    return rx.text(text_content, color="#ffffff")
+    return rx.text(text_content, color="#4b5563")
 
 
 def create_feature_box(
@@ -103,8 +105,8 @@ def create_learn_more_link():
         "Learn More",
         href="#",
         font_weight="600",
-        _hover={"color": "#1E40AF"},
-        color="#1b6f1b",
+        _hover={"color": "#74452f"},
+        color="#74452f",
     )
 
 
@@ -119,7 +121,7 @@ def create_feature_card(title, description):
         ),
         create_description_text(description=description),
         create_learn_more_link(),
-        background_color="#ffffff",
+        background_color="#f9fafb",
         padding="1.5rem",
         border_radius="0.5rem",
         box_shadow="0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
@@ -163,17 +165,17 @@ def create_logo_with_text():
     """Create a logo with text for the header."""
     return rx.flex(
         rx.image(
-            src="https://reflex-hosting-dev-flexgen.s3.us-west-2.amazonaws.com/replicate/1k9GU5ddAdpBNdINvwefyW1yDL2vpb6zt8NfNyw4MLaDODRnA/out-0.webp",
-            alt="Reflex logo",
-            height="2.5rem",
+            src="/logo.png",
+            alt="logo",
+            height="4.5rem",
             margin_right="0.75rem",
-            width="2.5rem",
+            width="4.5rem",
         ),
         rx.text.span(
             "Memento",
             font_weight="600",
             color="#ffffff",
-            font_size="1.25rem",
+            font_size="2rem",
             line_height="1.75rem",
         ),
         display="flex",
@@ -186,10 +188,10 @@ def create_header():
     return rx.flex(
         create_logo_with_text(),
         rx.flex(
-            create_navigation_link(link_text="Home"),
-            create_navigation_link(link_text="User"),
-            create_navigation_link(link_text="Family"),
-            create_navigation_link(link_text="About"),
+            create_navigation_link(link_text="Home", path="/"),
+            create_navigation_link(link_text="User", path="/user"),
+            create_navigation_link(link_text="Family", path="/family"),
+            create_navigation_link(link_text="About", path="/"),
             display="flex",
             align_items="center",
         ),
@@ -219,8 +221,8 @@ def create_get_started_button():
     """Create a 'Get Started' button with hover effects."""
     return rx.el.a(
         "Get Started",
-        href="#",
-        background_color="#1b6f1b",
+        href="/family/new-memory",
+        background_color="#74452f",
         transition_duration="300ms",
         font_weight="600",
         _hover={"background-color": "#DBEAFE"},
@@ -251,7 +253,7 @@ def create_hero_text_section():
             as_="h1",
         ),
         rx.text(
-            "Celebrate, connect, and preserve family moments with Memento – your personal memory keeper.",
+            "Celebrate, connect, and preserve family moments with Memento.",
             margin_bottom="1.5rem",
             font_size="1.25rem",
             line_height="1.75rem",
@@ -292,8 +294,8 @@ def create_hero_section():
         align_items="center",  # Center vertically
         justify_content="space-between",  # Space between text and image
         padding="2.5rem",
-        padding_left="2.5rem",
-        padding_right="2.5rem",
+        padding_left="10rem",
+        padding_right="10rem",
     )
 
 
@@ -301,7 +303,7 @@ def create_how_it_works_section():
     """Create the 'How It Works' section with feature boxes."""
     return rx.box(
         create_centered_heading(
-            heading_text="How It Works"
+            heading_text="How It Works", color="#000000"
         ),
         rx.box(
             create_feature_box(
@@ -351,7 +353,7 @@ def create_how_it_works_section():
 def create_features_section():
     """Create the 'Features' section with feature cards."""
     return rx.box(
-        create_centered_heading(heading_text="Features"),
+        create_centered_heading(heading_text="Features", color="#ffffff"),
         rx.box(
             create_feature_card(
                 title="User Dashboard",
@@ -410,7 +412,7 @@ def create_main_content():
         ),
         rx.box(
             create_features_section(),
-            background_color="#E5E7EB",
+            background_color="#ae7b58",
             padding_top="4rem",
             padding_bottom="4rem",
         ),
@@ -439,68 +441,10 @@ def create_footer_logo_section():
     )
 
 
-def create_footer_content():
-    """Create the main footer content with logo, quick links, and social media links."""
-    return rx.flex(
-        create_footer_logo_section(),
-        rx.box(
-            create_custom_heading(
-                heading_type="h4",
-                font_size="1.125rem",
-                margin_bottom="1rem",
-                heading_text="Quick Links",
-            ),
-            rx.list(
-                create_footer_list_item(link_text="Home"),
-                create_footer_list_item(link_text="User"),
-                create_footer_list_item(link_text="Family"),
-                create_footer_list_item(link_text="About"),
-            ),
-            margin_bottom=rx.breakpoints(
-                {"0px": "1.5rem", "768px": "0"}
-            ),
-            width=rx.breakpoints(
-                {"0px": "100%", "768px": "33.333333%"}
-            ),
-        ),
-        rx.box(
-            create_custom_heading(
-                heading_type="h4",
-                font_size="1.125rem",
-                margin_bottom="1rem",
-                heading_text="Connect With Us",
-            ),
-            rx.flex(
-                create_social_link(
-                    icon_alt="Facebook icon",
-                    icon_tag="facebook",
-                ),
-                create_social_link(
-                    icon_alt="Twitter icon",
-                    icon_tag="twitter",
-                ),
-                create_social_link(
-                    icon_alt="Instagram icon",
-                    icon_tag="instagram",
-                ),
-                display="flex",
-                column_gap="1rem",
-            ),
-            width=rx.breakpoints(
-                {"0px": "100%", "768px": "33.333333%"}
-            ),
-        ),
-        display="flex",
-        flex_wrap="wrap",
-        align_items="center",
-        justify_content="space-between",
-    )
-
-
 def create_footer():
     """Create the complete footer section with content and copyright notice."""
     return rx.box(
-        create_footer_content(),
+        # create_footer_content(),
         rx.box(
             rx.text("© 2024 Memento. All rights reserved."),
             border_color="#374151",
@@ -533,7 +477,7 @@ def create_page_layout():
     return rx.box(
         rx.box(
             create_header(),
-            background_color="#1b6f1b",
+            background_color="#74452f",
             box_shadow="0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
         ),
         create_main_content(),
@@ -601,7 +545,6 @@ app = rx.App(
         }
     )
 )
-
 
 app.add_page(index)
 app.add_page(user_index, route="/user")
