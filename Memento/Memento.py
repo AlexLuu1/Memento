@@ -65,5 +65,4 @@ app = rx.App(
 
 app.add_page(index)
 app.add_page(user_index, route="/user")
-app.add_page(family_index, route="/family")
 app.add_page(add_new_memory, route="/family/new-memory")

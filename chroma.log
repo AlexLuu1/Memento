@@ -704,3 +704,18 @@ sqlite3.OperationalError: attempt to write a readonly database
 [32mINFO[0m:     [19-10-2024 20:02:54] ::1:57682 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
 [33mWARNING[0m:  [19-10-2024 20:02:55] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
 [32mINFO[0m:     [19-10-2024 20:02:55] ::1:57682 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 20:08:45] ::1:57924 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 20:08:45] ::1:57924 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 20:08:45] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 20:08:45] ::1:57925 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 20:08:45] ::1:57925 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/get HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 20:08:54] ::1:57943 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 20:08:54] ::1:57943 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 20:08:54] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 20:08:54] ::1:57944 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 20:08:54] ::1:57944 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/get HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 20:14:38] ::1:58013 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 20:14:38] ::1:58013 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 20:14:38] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 20:14:38] ::1:58014 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 20:14:38] ::1:58014 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/get HTTP/1.1" 200

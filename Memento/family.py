@@ -9,59 +9,63 @@ import chromadb
 from chromadb import Documents, EmbeddingFunction, Embeddings
 import google.generativeai as genai
 import uuid
+from typing import List
 
 genai.configure(api_key='AIzaSyBoWysd4slrqHZUjZe7i9PJPSl4YugAxeI')
 text_to_img_model = genai.GenerativeModel("gemini-1.5-flash")
 
 
+class GeminiEmbeddingFunction(EmbeddingFunction):
+    def __call__(self, input: Documents) -> Embeddings:
+        model = 'models/embedding-001'
+        title = "Custom query"
+        return genai.embed_content(model=model,
+                                    content=input,
+                                    task_type="retrieval_document",
+                                    title=title)["embedding"]
+
+
 class FamilyState(rx.State):
-    temp_image = Image.open(requests.get("https://www.parents.com/thmb/--pZafKsgGSb8NrJVrV7lqJId9g=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/BirthdayParty-GettyImages-1600792233-c2a961509556414f9f41b92b8471a551.jpg", stream=True).raw)
+    data: List[tuple[str, str]] = []
 
-    posts: list[dict] = [
-        {"id": 1, "author": "Mom", "content": "Just baked cookies!", "timestamp": "2024-10-18 14:30"},
-        {"id": 2, "author": "Dad", "content": "Family picnic this weekend?", "timestamp": "2024-10-18 15:45"},
-    ]
-    events: list[dict] = [
-        {"id": 1, "title": "Grandma's Birthday", "date": "2024-10-25"},
-        {"id": 2, "title": "Family Reunion", "date": "2024-11-15"},
-    ]
-    new_post: str = ""
-    new_memory_description: str = ""
-    current_view: str = "memories"
+    def get_data(self):
+        self.data = []
+        collection = chromadb.HttpClient(host='localhost', port=8001).get_or_create_collection(name="vectordb", embedding_function=GeminiEmbeddingFunction())
+        results = collection.get()
 
-    def add_post(self):
-        if self.new_post.strip():
-            self.posts.append({
-                "id": len(self.posts) + 1,
-                "author": "You",
-                "content": self.new_post,
-                "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M")
-            })
-            self.new_post = ""
+        documents = results["documents"]
+        metadatas = results["metadatas"]
 
-    def add_memory(self):
-        if self.new_memory_description.strip():
-            # In a real app, you'd handle image upload here
-            self.posts.insert(0, {
-                "id": len(self.posts) + 1,
-                "author": "You",
-                "content": self.new_memory_description,
-                "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M"),
-                "image": self.temp_image
-            })
-            self.new_memory_description = ""
+        for i, (doc, metadata) in enumerate(zip(documents, metadatas)):
+            print(doc)
+            date, description, image_summary = doc.split('|', 2)
+            self.data.append((description, metadata['filename'] + ".jpg"))
+        print(self.data)
+    
 
-    def set_view(self, view: str):
-        self.current_view = view
+def single_render(single_data: tuple):
+    return rx.container(
+        rx.card(
+            rx.hstack(
+                rx.image(
+                    src=rx.get_upload_url(single_data[1]),
+                    width="200px",
+                    height="auto",
+                ),
+                rx.text(single_data[0]),
+            ),
+        ),
+    )
 
 
+@rx.page(on_load=FamilyState.get_data, route="/family")
 def family_index():
     return rx.container(
         rx.spacer(),
         rx.vstack(
             rx.heading("Family", size="9"),
             rx.text(
-                "Add new memories here!",
+                "Add new memories, here!",
                 size="5",
             ),
             rx.button(
@@ -79,19 +83,8 @@ def family_index():
         ),
         rx.grid(
             rx.foreach(
-                rx.Var.range(5),
-                lambda i: rx.card(
-                    rx.hstack(
-                        rx.image(
-                            src=FamilyState.temp_image,
-                            width="200px",
-                            height="auto",
-                        ),
-                        rx.text(
-                            "MEMORY DESCRIPTION"
-                        ),
-                    ),
-                ),
+                FamilyState.data,
+                single_render
             ),
             columns="1",
             spacing="4",
@@ -100,15 +93,6 @@ def family_index():
         rx.spacer(),
     )
 
-
-class GeminiEmbeddingFunction(EmbeddingFunction):
-    def __call__(self, input: Documents) -> Embeddings:
-        model = 'models/embedding-001'
-        title = "Custom query"
-        return genai.embed_content(model=model,
-                                    content=input,
-                                    task_type="retrieval_document",
-                                    title=title)["embedding"]
 
 class NewMemory(rx.State):
     date = ""
