@@ -6,6 +6,11 @@ __pycache__/
 assets/external/
 venv
 .env
-uploaded_files/
+
+uploaded_files/*
 !uploaded_files/.gitkeep
+
+db_path/*
+!db_path/.gitkeep
+
 chroma.log
