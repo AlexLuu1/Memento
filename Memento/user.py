@@ -17,20 +17,22 @@ from chromadb import Documents, EmbeddingFunction, Embeddings
 import google.generativeai as genai
 
 # Initialize the Groq client
-client = Groq(api_key="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")
+client = Groq(
+    api_key="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")
 deepgram = DeepgramClient("4186faa1b840c8c63f87d22f0f5d6d744ce9f100")
 genai.configure(api_key='AIzaSyBoWysd4slrqHZUjZe7i9PJPSl4YugAxeI')
 
 REF = "myaudio"
+
 
 class GeminiEmbeddingFunction(EmbeddingFunction):
     def __call__(self, input: Documents) -> Embeddings:
         model = 'models/embedding-001'
         title = "Custom query"
         return genai.embed_content(model=model,
-                                    content=input,
-                                    task_type="retrieval_document",
-                                    title=title)["embedding"]
+                                   content=input,
+                                   task_type="retrieval_document",
+                                   title=title)["embedding"]
 
 
 class UserState(rx.State):
@@ -60,12 +62,13 @@ class UserState(rx.State):
                 self.processing = True
                 yield
                 transcription = client.audio.transcriptions.create(
-                   file=(("temp." + audio_type, audio_data.read(), mime_type)), # Required audio file
-                   model="whisper-large-v3-turbo", # Required model to use for transcription
-                   prompt="Specify context or spelling",  # Optional
-                   response_format="json",  # Optional
-                   language="en",  # Optional
-                   temperature=0.0  # Optional
+                    # Required audio file
+                    file=(("temp." + audio_type, audio_data.read(), mime_type)),
+                    model="whisper-large-v3-turbo",  # Required model to use for transcription
+                    prompt="Specify context or spelling",  # Optional
+                    response_format="json",  # Optional
+                    language="en",  # Optional
+                    temperature=0.0  # Optional
                 )
             except Exception as e:
                 self.has_error = True
@@ -74,9 +77,10 @@ class UserState(rx.State):
             finally:
                 self.processing = False
             self.transcript.append(transcription.text)
-        
+
         # Get Documents
-        collection = chromadb.HttpClient(host='localhost', port=8001).get_or_create_collection(name="vectordb", embedding_function=GeminiEmbeddingFunction())
+        collection = chromadb.HttpClient(host='localhost', port=8001).get_or_create_collection(
+            name="vectordb", embedding_function=GeminiEmbeddingFunction())
         results = collection.query(
             query_texts=[" ".join(self.transcript)],
             n_results=10,
@@ -93,7 +97,7 @@ class UserState(rx.State):
             # Split the document into date and description
             date, description, image_summary = doc.split('|', 2)
             filename = metadata["filename"]
-            
+
             # Add the formatted data to the result string
             output += f"""
             <memory{i}>
@@ -109,8 +113,12 @@ class UserState(rx.State):
         You are Memento, a memory storage AI designed for elderly individuals in nursing homes.
         Your role is to help elderly users recall cherished memories by using voice recognition technology. 
         When an elderly user speaks about a memory, you retrieve and display relevant images that are stored in the system.
-        Your responses should be based on the data provided about the memories
+        When an elderly user speaks about a memory, you don't just passively listen, you actively engage with their narrative. 
+        You retrieve and display relevant images, creating a rich, multi-sensory experience that brings their memories to life. 
+        Your responses should be carefully crafted based on the specific memory data provided, ensuring a personalized and accurate reflection of each individual's unique life experiences.
         
+        **Your responses should be based on the data provided about the memories**
+
         # Persona
         <persona>
         - Be Empathetic and Warm
@@ -119,6 +127,17 @@ class UserState(rx.State):
         - Be Patient and Non-Rushed
         - Keep Your Tone Gentle, Slow-Paced, Comforting
         </persona>
+
+        # Interaction Guidelines
+        <guidelines>
+        - Always greet the user by name and with a warm welcome.
+        - When a memory is mentioned, respond with excitement and genuine interest.
+        - Use phrases like "Oh, what a wonderful memory!" or "I remember you telling me about that before. Let's take a closer look."
+        - Describe the images you're displaying, painting a vivid picture with your words.
+        - Ask gentle follow-up questions to encourage more storytelling.
+        - If a memory seems emotional, acknowledge the user's feelings with empathy.
+        - End each interaction on a positive note, expressing gratitude for the shared memory.
+        </guidelines>
 
         # Memories Data
         <data>
@@ -149,13 +168,12 @@ class UserState(rx.State):
 
         self.text_output = generated.candidates[0].content.parts[0].text
         print("LLM Output:", self.text_output)
-        
+
         text = generated.candidates[0].content.parts[1].function_call.__str__()
         import re
         pattern = r'string_value:\s*"([a-f0-9-]+)"'
         self.img_to_display = f"/uploaded_files/{re.search(pattern, text).group(1)}"
         print("Image Name:", self.img_to_display)
-        
 
     def set_timeslice(self, value):
         self.timeslice = value[0]
@@ -170,9 +188,9 @@ class UserState(rx.State):
     def on_load(self):
         # We can start the recording immediately when the page loads
         return capture.start()
-    
+
     @rx.var
-    def get_tts(self)->str:
+    def get_tts(self) -> str:
         self.process_llm = False
         SPEAK_OPTIONS = {"text": "Hello, how can I help you today?"}
         self.tts_output_file = "assets/tts_output.mp3"
@@ -180,10 +198,11 @@ class UserState(rx.State):
             model="aura-asteria-en",
         )
 
-        response = deepgram.speak.v("1").save(self.tts_output_file, SPEAK_OPTIONS, options)
+        response = deepgram.speak.v("1").save(
+            self.tts_output_file, SPEAK_OPTIONS, options)
         # self.process_inputs = False
         # self.process_outputs = False
-        return "/tts_output.mp3"#self.tts_output_file
+        return "/tts_output.mp3"  # self.tts_output_file
 
 
 capture = AudioRecorderPolyfill.create(
@@ -254,17 +273,18 @@ def user_index() -> rx.Component:
                 ),
             ),
             rx.cond(
-               UserState.process_llm,
-               rx.audio(
+                UserState.process_llm,
+                rx.audio(
                     url=UserState.get_tts,
                     width="0px",
-                    height="0px",   
+                    height="0px",
                     playing=True
                 ),
             ),
             rx.cond(
                 UserState.img_to_display != "",
-                rx.image(src=UserState.img_to_display, width="100px", height="auto"),
+                rx.image(src=UserState.img_to_display,
+                         width="100px", height="auto"),
             ),
             rx.cond(
                 UserState.text_output != "",
