@@ -17,8 +17,7 @@ from chromadb import Documents, EmbeddingFunction, Embeddings
 import google.generativeai as genai
 
 # Initialize the Groq client
-client = Groq(
-    api_key="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")
+client = Groq(api_key="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")
 deepgram = DeepgramClient("4186faa1b840c8c63f87d22f0f5d6d744ce9f100")
 genai.configure(api_key='AIzaSyBoWysd4slrqHZUjZe7i9PJPSl4YugAxeI')
 
@@ -48,16 +47,15 @@ class UserState(rx.State):
 
     img_to_display: str = ""
     text_output: str = ""
-    process_llm: bool = False
+    filenum: int = 0
+    # process_llm: bool = False
 
     async def on_data_available(self, chunk: str):
         mime_type, _, codec = get_codec(chunk).partition(";")
         audio_type = mime_type.partition("/")[2]
         if audio_type == "mpeg":
             audio_type = "mp3"
-        print(len(chunk), mime_type, codec, audio_type)
         with urlopen(strip_codec_part(chunk)) as audio_data:
-            print(type(audio_data))
             try:
                 self.processing = True
                 yield
@@ -92,7 +90,7 @@ class UserState(rx.State):
         metadatas = results["metadatas"][0]
 
         output = ""
-        # Iterate through the documents
+        # Iterate through the
         for i, (doc, metadata) in enumerate(zip(documents, metadatas)):
             # Split the document into date and description
             print(doc.split('|', 2))
@@ -146,8 +144,6 @@ class UserState(rx.State):
         </data>
         """
 
-        print(system)
-
         def fileNameGrabber(image_name: str) -> str:
             """Grabs the Image Name of the most relevant memory created in your response.
 
@@ -165,12 +161,12 @@ class UserState(rx.State):
             tools=[fileNameGrabber]
         )
 
+        print(self.transcript)
         generated = model.generate_content(" ".join(self.transcript))
+        print(generated)
+        self.text_output = generated.candidates[-1].content.parts[0].text
 
-        self.text_output = generated.candidates[0].content.parts[0].text
-        print("LLM Output:", self.text_output)
-
-        text = generated.candidates[0].content.parts[1].function_call.__str__()
+        text = generated.candidates[-1].content.parts[1].function_call.__str__()
         import re
         pattern = r'string_value:\s*"([a-f0-9-]+)"'
         self.img_to_display = f"{re.search(pattern, text).group(1)}.jpg"
@@ -190,20 +186,26 @@ class UserState(rx.State):
         # We can start the recording immediately when the page loads
         return capture.start()
 
-    @rx.var
+    def reset_output(self):
+        self.text_output = ""
+        self.filenum += 1
+
+    @rx.var(cache=True)
     def get_tts(self) -> str:
-        self.process_llm = False
-        SPEAK_OPTIONS = {"text": "Hello, how can I help you today?"}
-        self.tts_output_file = "assets/tts_output.mp3"
+        if not self.text_output:
+            return ""
+
+        print("LLM Output: " + self.text_output)
+        SPEAK_OPTIONS = {"text": self.text_output}
+        self.tts_output_file = f"tts_output_{self.filenum}.wav"
         options = SpeakOptions(
             model="aura-asteria-en",
+            encoding="linear16",
+            container="wav"
         )
 
-        response = deepgram.speak.v("1").save(
-            self.tts_output_file, SPEAK_OPTIONS, options)
-        # self.process_inputs = False
-        # self.process_outputs = False
-        return "/tts_output.mp3"  # self.tts_output_file
+        deepgram.speak.v("1").save(f"uploaded_files/{self.tts_output_file}", SPEAK_OPTIONS, options)
+        return self.tts_output_file
 
 
 capture = AudioRecorderPolyfill.create(
@@ -276,15 +278,16 @@ def user_index() -> rx.Component:
             rx.cond(
                 UserState.img_to_display != "",
                 rx.image(src=rx.get_upload_url(UserState.img_to_display), width="100px", height="auto"),
+            ),
             rx.cond(
-                UserState.process_llm,
+                UserState.text_output != "",
                 rx.audio(
-                    url=UserState.get_tts,
+                    url=rx.get_upload_url(UserState.get_tts),
                     width="0px",
                     height="0px",
-                    playing=True
+                    playing=True,
+                    on_ended=UserState.reset_output
                 ),
-            ),
             ),
             rx.cond(
                 UserState.text_output != "",

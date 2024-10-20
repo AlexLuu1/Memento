@@ -719,3 +719,425 @@ sqlite3.OperationalError: attempt to write a readonly database
 [36mDEBUG[0m:    [19-10-2024 20:14:38] Collection vectordb already exists, returning existing collection.
 [32mINFO[0m:     [19-10-2024 20:14:38] ::1:58014 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
 [32mINFO[0m:     [19-10-2024 20:14:38] ::1:58014 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/get HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 20:29:17] ::1:58392 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 20:29:17] ::1:58392 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 20:29:17] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 20:29:17] ::1:58393 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 20:29:17] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 20:29:17] ::1:58393 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 20:30:14] ::1:58404 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 20:30:14] ::1:58404 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 20:30:14] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 20:30:14] ::1:58405 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 20:30:14] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 20:30:14] ::1:58405 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 20:40:26] ::1:58615 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 20:40:26] ::1:58615 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 20:40:26] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 20:40:26] ::1:58616 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 20:40:26] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 20:40:26] ::1:58616 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 20:41:37] ::1:58629 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 20:41:37] ::1:58629 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 20:41:37] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 20:41:37] ::1:58630 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 20:41:38] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 20:41:38] ::1:58630 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 20:45:28] ::1:58728 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 20:45:28] ::1:58728 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 20:45:28] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 20:45:28] ::1:58729 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 20:45:28] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 20:45:28] ::1:58729 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 20:46:03] ::1:58742 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 20:46:03] ::1:58742 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 20:46:03] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 20:46:03] ::1:58743 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 20:46:04] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 20:46:04] ::1:58743 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 20:46:16] ::1:58755 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 20:46:16] ::1:58755 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 20:46:16] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 20:46:16] ::1:58756 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 20:46:16] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 20:46:16] ::1:58756 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 20:46:35] ::1:58762 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 20:46:35] ::1:58762 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 20:46:35] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 20:46:35] ::1:58763 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 20:46:35] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 20:46:35] ::1:58763 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 20:48:06] ::1:58818 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 20:48:06] ::1:58818 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 20:48:06] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 20:48:06] ::1:58819 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 20:48:06] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 20:48:06] ::1:58819 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 20:48:57] ::1:58833 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 20:48:57] ::1:58833 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 20:48:57] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 20:48:57] ::1:58834 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 20:48:57] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 20:48:57] ::1:58834 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 20:50:26] ::1:58877 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 20:50:26] ::1:58877 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 20:50:26] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 20:50:26] ::1:58878 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 20:50:26] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 20:50:26] ::1:58878 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 20:51:03] ::1:58920 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 20:51:04] ::1:58920 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 20:51:04] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 20:51:04] ::1:58921 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 20:51:04] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 20:51:04] ::1:58921 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 20:57:54] ::1:59143 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 20:57:54] ::1:59143 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 20:57:54] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 20:57:54] ::1:59144 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 20:57:54] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 20:57:54] ::1:59144 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 20:58:25] ::1:59157 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 20:58:25] ::1:59157 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 20:58:25] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 20:58:25] ::1:59158 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 20:58:25] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 20:58:25] ::1:59158 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:01:10] ::1:59281 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:01:10] ::1:59281 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 21:01:10] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 21:01:10] ::1:59282 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 21:01:10] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 21:01:10] ::1:59282 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:02:53] ::1:59359 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:02:53] ::1:59359 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 21:02:53] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 21:02:53] ::1:59360 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 21:02:59] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 21:02:59] ::1:59365 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:05:22] Shutting down
+[32mINFO[0m:     [19-10-2024 21:05:22] Waiting for application shutdown.
+[36mDEBUG[0m:    [19-10-2024 21:05:22] Stopping component System
+[36mDEBUG[0m:    [19-10-2024 21:05:22] Stopping component SegmentAPI
+[36mDEBUG[0m:    [19-10-2024 21:05:22] Stopping component LocalExecutor
+[36mDEBUG[0m:    [19-10-2024 21:05:22] Stopping component PersistentLocalHnswSegment
+[36mDEBUG[0m:    [19-10-2024 21:05:22] Stopping component LocalSegmentManager
+[36mDEBUG[0m:    [19-10-2024 21:05:22] Stopping component SimpleRateLimitEnforcer
+[36mDEBUG[0m:    [19-10-2024 21:05:22] Stopping component Posthog
+[36mDEBUG[0m:    [19-10-2024 21:05:22] Stopping component QuotaEnforcer
+[36mDEBUG[0m:    [19-10-2024 21:05:22] Stopping component SqliteDB
+[36mDEBUG[0m:    [19-10-2024 21:05:22] Stopping component OpenTelemetryClient
+[32mINFO[0m:     [19-10-2024 21:05:22] Application shutdown complete.
+[32mINFO[0m:     [19-10-2024 21:05:22] Finished server process [[36m83372[0m]
+[33mWARNING[0m:  [19-10-2024 21:08:01] chroma_server_nofile is set to 65535, but this is less than current soft limit of 1048575. chroma_server_nofile will not be set.
+[32mINFO[0m:     [19-10-2024 21:08:01] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[36mDEBUG[0m:    [19-10-2024 21:08:01] Starting component System
+[36mDEBUG[0m:    [19-10-2024 21:08:01] Starting component OpenTelemetryClient
+[36mDEBUG[0m:    [19-10-2024 21:08:01] Starting component SqliteDB
+[36mDEBUG[0m:    [19-10-2024 21:08:01] Starting component QuotaEnforcer
+[36mDEBUG[0m:    [19-10-2024 21:08:01] Starting component Posthog
+[36mDEBUG[0m:    [19-10-2024 21:08:01] Starting component SimpleRateLimitEnforcer
+[36mDEBUG[0m:    [19-10-2024 21:08:01] Starting component LocalSegmentManager
+[36mDEBUG[0m:    [19-10-2024 21:08:01] Starting component LocalExecutor
+[36mDEBUG[0m:    [19-10-2024 21:08:01] Starting component SegmentAPI
+[32mINFO[0m:     [19-10-2024 21:08:01] Started server process [[36m88378[0m]
+[32mINFO[0m:     [19-10-2024 21:08:01] Waiting for application startup.
+[32mINFO[0m:     [19-10-2024 21:08:01] Application startup complete.
+[32mINFO[0m:     [19-10-2024 21:08:01] Uvicorn running on [1mhttp://localhost:8001[0m (Press CTRL+C to quit)
+[32mINFO[0m:     [19-10-2024 21:08:46] ::1:59449 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:08:46] ::1:59449 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 21:08:46] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 21:08:46] ::1:59450 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 21:08:47] Starting component PersistentLocalHnswSegment
+[33mWARNING[0m:  [19-10-2024 21:08:47] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 21:08:47] ::1:59450 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:10:05] ::1:59478 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:10:05] ::1:59478 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 21:10:05] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 21:10:05] ::1:59479 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 21:10:05] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 21:10:05] ::1:59479 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:13:11] ::1:59527 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:13:11] ::1:59527 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 21:13:11] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 21:13:11] ::1:59528 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 21:13:12] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 21:13:12] ::1:59528 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:20:43] ::1:59622 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:20:43] ::1:59622 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 21:20:43] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 21:20:43] ::1:59623 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 21:20:43] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 21:20:43] ::1:59623 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:20:54] ::1:59635 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:20:54] ::1:59635 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 21:20:54] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 21:20:54] ::1:59636 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 21:20:54] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 21:20:54] ::1:59636 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:24:25] ::1:59741 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:24:25] ::1:59741 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 21:24:25] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 21:24:25] ::1:59742 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 21:24:26] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 21:24:26] ::1:59742 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:28:23] ::1:59824 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:28:23] ::1:59824 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 21:28:23] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 21:28:23] ::1:59825 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 21:28:24] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 21:28:24] ::1:59825 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:29:18] ::1:59856 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:29:18] ::1:59856 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 21:29:18] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 21:29:18] ::1:59857 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 21:29:18] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 21:29:18] ::1:59857 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:30:32] ::1:59901 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:30:32] ::1:59901 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 21:30:32] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 21:30:32] ::1:59902 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 21:30:32] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 21:30:32] ::1:59902 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:30:57] ::1:59914 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:30:57] ::1:59914 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 21:30:57] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 21:30:57] ::1:59915 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 21:30:57] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 21:30:57] ::1:59915 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:31:34] ::1:59953 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:31:34] ::1:59953 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 21:31:34] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 21:31:34] ::1:59954 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 21:31:34] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 21:31:34] ::1:59954 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:32:34] ::1:59966 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:32:34] ::1:59966 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 21:32:34] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 21:32:34] ::1:59967 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 21:32:34] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 21:32:34] ::1:59967 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:32:35] Backing off send_request(...) for 0.7s (requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')))
+[32mINFO[0m:     [19-10-2024 21:34:06] ::1:60038 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:34:06] ::1:60038 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 21:34:06] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 21:34:06] ::1:60039 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 21:34:06] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 21:34:06] ::1:60039 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:34:24] ::1:60048 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:34:24] ::1:60048 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 21:34:24] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 21:34:24] ::1:60049 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 21:34:25] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 21:34:25] ::1:60049 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:39:31] ::1:60196 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:39:31] ::1:60196 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 21:39:31] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 21:39:31] ::1:60197 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 21:39:32] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 21:39:32] ::1:60197 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:42:42] ::1:60378 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:42:42] ::1:60378 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 21:42:42] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 21:42:42] ::1:60379 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 21:42:43] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 21:42:43] ::1:60379 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:42:58] Backing off send_request(...) for 0.9s (requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='us.i.posthog.com', port=443): Read timed out. (read timeout=15))
+[32mINFO[0m:     [19-10-2024 21:43:44] ::1:60425 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:43:44] ::1:60425 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 21:43:44] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 21:43:44] ::1:60426 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 21:43:44] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 21:43:44] ::1:60426 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:44:52] ::1:60471 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:44:52] ::1:60471 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 21:44:52] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 21:44:52] ::1:60472 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 21:44:53] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 21:44:53] ::1:60472 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:46:54] ::1:60639 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:46:54] ::1:60639 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 21:46:54] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 21:46:54] ::1:60640 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 21:46:55] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 21:46:55] ::1:60640 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:47:28] ::1:60653 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:47:28] ::1:60653 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 21:47:28] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 21:47:28] ::1:60654 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 21:47:29] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 21:47:29] ::1:60654 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:49:13] ::1:60724 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:49:13] ::1:60724 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 21:49:13] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 21:49:13] ::1:60725 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 21:49:14] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 21:49:14] ::1:60725 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:49:43] ::1:60787 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:49:43] ::1:60787 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 21:49:43] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 21:49:43] ::1:60788 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 21:49:43] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 21:49:43] ::1:60788 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:53:40] ::1:60847 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:53:40] ::1:60847 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 21:53:40] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 21:53:40] ::1:60848 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 21:53:40] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 21:53:40] ::1:60848 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:54:06] ::1:60865 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:54:06] ::1:60865 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 21:54:06] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 21:54:06] ::1:60866 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 21:54:06] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 21:54:06] ::1:60866 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:58:20] ::1:61018 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:58:20] ::1:61018 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 21:58:20] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 21:58:20] ::1:61019 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 21:58:21] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 21:58:21] ::1:61019 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:58:47] ::1:61029 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 21:58:47] ::1:61029 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 21:58:47] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 21:58:47] ::1:61030 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 21:58:47] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 21:58:47] ::1:61030 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:03:13] ::1:61119 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:03:13] ::1:61119 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 22:03:13] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 22:03:13] ::1:61120 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 22:03:14] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 22:03:14] ::1:61120 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:03:46] ::1:61132 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:03:46] ::1:61132 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 22:03:46] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 22:03:46] ::1:61133 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 22:03:47] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 22:03:47] ::1:61133 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:06:51] ::1:61213 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:06:51] ::1:61213 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 22:06:51] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 22:06:51] ::1:61214 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 22:06:52] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 22:06:52] ::1:61214 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:07:33] ::1:61229 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:07:33] ::1:61229 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 22:07:33] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 22:07:33] ::1:61230 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 22:07:34] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 22:07:34] ::1:61230 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:12:25] ::1:61291 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:12:25] ::1:61291 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 22:12:25] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 22:12:25] ::1:61292 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 22:12:26] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 22:12:26] ::1:61292 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:12:48] ::1:61302 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:12:48] ::1:61302 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 22:12:48] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 22:12:48] ::1:61303 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 22:12:48] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 22:12:48] ::1:61303 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:16:21] ::1:61359 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:16:21] ::1:61359 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 22:16:21] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 22:16:21] ::1:61360 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 22:16:22] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 22:16:22] ::1:61360 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:16:40] ::1:61370 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:16:40] ::1:61370 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 22:16:40] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 22:16:40] ::1:61371 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 22:16:40] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 22:16:40] ::1:61371 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:34:27] ::1:61665 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:34:27] ::1:61665 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 22:34:27] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 22:34:27] ::1:61666 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 22:34:27] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 22:34:27] ::1:61666 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:35:01] ::1:61679 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:35:01] ::1:61679 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 22:35:01] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 22:35:01] ::1:61680 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 22:35:01] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 22:35:01] ::1:61680 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:37:12] ::1:61730 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:37:12] ::1:61730 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 22:37:12] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 22:37:12] ::1:61731 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 22:37:12] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 22:37:12] ::1:61731 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:38:41] ::1:61790 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:38:41] ::1:61790 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 22:38:41] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 22:38:41] ::1:61791 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 22:38:42] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 22:38:42] ::1:61791 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:41:39] Shutting down
+[32mINFO[0m:     [19-10-2024 22:41:39] Waiting for application shutdown.
+[36mDEBUG[0m:    [19-10-2024 22:41:39] Stopping component System
+[36mDEBUG[0m:    [19-10-2024 22:41:39] Stopping component SegmentAPI
+[36mDEBUG[0m:    [19-10-2024 22:41:39] Stopping component LocalExecutor
+[36mDEBUG[0m:    [19-10-2024 22:41:39] Stopping component PersistentLocalHnswSegment
+[36mDEBUG[0m:    [19-10-2024 22:41:39] Stopping component LocalSegmentManager
+[36mDEBUG[0m:    [19-10-2024 22:41:39] Stopping component SimpleRateLimitEnforcer
+[36mDEBUG[0m:    [19-10-2024 22:41:39] Stopping component Posthog
+[36mDEBUG[0m:    [19-10-2024 22:41:39] Stopping component QuotaEnforcer
+[36mDEBUG[0m:    [19-10-2024 22:41:39] Stopping component SqliteDB
+[36mDEBUG[0m:    [19-10-2024 22:41:39] Stopping component OpenTelemetryClient
+[32mINFO[0m:     [19-10-2024 22:41:39] Application shutdown complete.
+[32mINFO[0m:     [19-10-2024 22:41:39] Finished server process [[36m88378[0m]
+[33mWARNING[0m:  [19-10-2024 22:41:42] chroma_server_nofile is set to 65535, but this is less than current soft limit of 1048575. chroma_server_nofile will not be set.
+[32mINFO[0m:     [19-10-2024 22:41:42] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[36mDEBUG[0m:    [19-10-2024 22:41:42] Starting component System
+[36mDEBUG[0m:    [19-10-2024 22:41:42] Starting component OpenTelemetryClient
+[36mDEBUG[0m:    [19-10-2024 22:41:42] Starting component SqliteDB
+[36mDEBUG[0m:    [19-10-2024 22:41:42] Starting component QuotaEnforcer
+[36mDEBUG[0m:    [19-10-2024 22:41:42] Starting component Posthog
+[36mDEBUG[0m:    [19-10-2024 22:41:42] Starting component SimpleRateLimitEnforcer
+[36mDEBUG[0m:    [19-10-2024 22:41:42] Starting component LocalSegmentManager
+[36mDEBUG[0m:    [19-10-2024 22:41:42] Starting component LocalExecutor
+[36mDEBUG[0m:    [19-10-2024 22:41:42] Starting component SegmentAPI
+[32mINFO[0m:     [19-10-2024 22:41:42] Started server process [[36m93740[0m]
+[32mINFO[0m:     [19-10-2024 22:41:42] Waiting for application startup.
+[32mINFO[0m:     [19-10-2024 22:41:42] Application startup complete.
+[32mINFO[0m:     [19-10-2024 22:41:42] Uvicorn running on [1mhttp://localhost:8001[0m (Press CTRL+C to quit)
+[32mINFO[0m:     [19-10-2024 22:42:16] ::1:61840 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:42:16] ::1:61840 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:42:16] ::1:61841 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:42:16] ::1:61841 - "POST /api/v1/collections/55e74acc-68cd-4565-852c-12d9ce406d37/get HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:42:31] ::1:61844 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:42:31] ::1:61844 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 22:42:31] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 22:42:31] ::1:61845 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:42:31] ::1:61845 - "GET /api/v1/pre-flight-checks HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 22:42:31] Starting component PersistentLocalHnswSegment
+[32mINFO[0m:     [19-10-2024 22:42:31] ::1:61845 - "POST /api/v1/collections/55e74acc-68cd-4565-852c-12d9ce406d37/upsert HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:42:31] ::1:61845 - "POST /api/v1/collections/55e74acc-68cd-4565-852c-12d9ce406d37/get HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:42:31] ::1:61851 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:42:31] ::1:61851 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 22:42:31] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 22:42:31] ::1:61852 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:42:34] ::1:61852 - "POST /api/v1/collections/55e74acc-68cd-4565-852c-12d9ce406d37/get HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:42:35] ::1:61852 - "GET /api/v1/pre-flight-checks HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:42:35] ::1:61852 - "POST /api/v1/collections/55e74acc-68cd-4565-852c-12d9ce406d37/upsert HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:42:35] ::1:61852 - "POST /api/v1/collections/55e74acc-68cd-4565-852c-12d9ce406d37/get HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:42:35] ::1:61856 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:42:35] ::1:61856 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 22:42:35] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 22:42:35] ::1:61857 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:42:35] ::1:61857 - "POST /api/v1/collections/55e74acc-68cd-4565-852c-12d9ce406d37/get HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:42:56] ::1:61868 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:42:56] ::1:61868 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 22:42:56] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 22:42:56] ::1:61869 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 22:42:57] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 22:42:57] ::1:61869 - "POST /api/v1/collections/55e74acc-68cd-4565-852c-12d9ce406d37/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:44:50] ::1:61935 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 22:44:50] ::1:61935 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 22:44:50] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 22:44:50] ::1:61936 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 22:44:50] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 22:44:50] ::1:61936 - "POST /api/v1/collections/55e74acc-68cd-4565-852c-12d9ce406d37/query HTTP/1.1" 200
