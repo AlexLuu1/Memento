@@ -91,7 +91,6 @@ class UserState(rx.State):
         output = ""
         # Iterate through the documents
         for i, (doc, metadata) in enumerate(zip(documents, metadatas)):
-            print(doc)
             # Split the document into date and description
             date, description, image_summary = doc.split('|', 2)
             filename = metadata["filename"]
@@ -149,11 +148,14 @@ class UserState(rx.State):
 
         generated = model.generate_content(" ".join(self.transcript))
 
-        self.text_output = generated._result.candidates["content"]["parts"][0]["text"]
-        print(self.text_output)
+        self.text_output = generated.candidates[0].content.parts[0].text
+        print("LLM Output:", self.text_output)
         
-        self.img_to_display = f"/uploaded_files/{generated._result.candidates['content']['parts'][1]['function_call']['args']['image_name']}"
-        print(self.img_to_display)
+        text = generated.candidates[0].content.parts[1].function_call.__str__()
+        import re
+        pattern = r'string_value:\s*"([a-f0-9-]+)"'
+        self.img_to_display = f"/uploaded_files/{re.search(pattern, text).group(1)}"
+        print("Image Name:", self.img_to_display)
         
 
     def set_timeslice(self, value):
@@ -266,6 +268,10 @@ def user_index() -> rx.Component:
             rx.cond(
                 UserState.img_to_display != "",
                 rx.image(src=UserState.img_to_display, width="100px", height="auto"),
+            ),
+            rx.cond(
+                UserState.text_output != "",
+                rx.text(UserState.text_output),
             ),
             style={"width": "100%", "> *": {"width": "100%"}},
         ),
