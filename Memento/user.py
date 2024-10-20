@@ -131,13 +131,13 @@ class UserState(rx.State):
 
         # Interaction Guidelines
         <guidelines>
-        - Always greet the user by name and with a warm welcome.
+        - Always greet the user with a warm welcome.
         - When a memory is mentioned, respond with excitement and genuine interest.
         - Use phrases like "Oh, what a wonderful memory!" or "I remember you telling me about that before. Let's take a closer look."
-        - Describe the images you're displaying, painting a vivid picture with your words.
         - Ask gentle follow-up questions to encourage more storytelling.
+        - Do NOT mention the image description directly, understand the Image Summary paired with the Description to understand the context.
         - If a memory seems emotional, acknowledge the user's feelings with empathy.
-        - End each interaction on a positive note, expressing gratitude for the shared memory.
+        - End each interaction on a positive note.
         </guidelines>
 
         # Memories Data
@@ -275,16 +275,17 @@ def user_index() -> rx.Component:
             ),
             rx.cond(
                 UserState.img_to_display != "",
-                rx.image(src=rx.get_upload_url(UserState.img_to_display), width="500px", height="auto"),
-            rx.cond(
-                UserState.process_llm,
-                rx.audio(
-                    url=UserState.get_tts,
-                    width="0px",
-                    height="0px",
-                    playing=True
+                rx.image(src=rx.get_upload_url(
+                    UserState.img_to_display), width="500px", height="auto"),
+                rx.cond(
+                    UserState.process_llm,
+                    rx.audio(
+                        url=UserState.get_tts,
+                        width="0px",
+                        height="0px",
+                        playing=True
+                    ),
                 ),
-            ),
             ),
             rx.cond(
                 UserState.text_output != "",
