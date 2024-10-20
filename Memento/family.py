@@ -3,6 +3,7 @@ from rxconfig import config
 from datetime import datetime
 
 from PIL import Image
+import io
 import requests
 import chromadb
 from chromadb import Documents, EmbeddingFunction, Embeddings
@@ -132,8 +133,8 @@ class NewMemory(rx.State):
         )
 
         old_data = collection.get(
-                ids=[self.generated_uuid]
-            )
+            ids=[self.generated_uuid]
+        )
         print("1st function data", old_data)
 
         return rx.redirect(
@@ -150,14 +151,25 @@ class NewMemory(rx.State):
 
         for file in files:
             upload_data = await file.read()
-            outfile = rx.get_upload_dir() / file.filename
+            outfile = f"{rx.get_upload_dir()}/{self.generated_uuid}.jpg"
+
+            print(outfile)
 
             # Save the file.
-            with outfile.open("wb") as file_object:
-                file_object.write(upload_data)
+            # with outfile.open("wb") as file_object:
+            
+            image = Image.open(io.BytesIO(upload_data))
+            if image.mode != "RGB":
+                image = image.convert("RGB")
+
+            # Save the image as a JPG
+            # jpg_image_io = io.BytesIO()
+            image.save(outfile, format="JPEG")
+
+            # file_object.write(upload_data)
             
             # Get text from image with Gemini
-            myfile = genai.upload_file(outfile)
+            myfile = genai.upload_file(outfile, mime_type="image/jpeg")
             print(f"{myfile=}")
 
             result = text_to_img_model.generate_content(

@@ -71,3 +71,636 @@
 [32mINFO[0m:     [19-10-2024 16:52:34] Waiting for application startup.
 [32mINFO[0m:     [19-10-2024 16:52:34] Application startup complete.
 [32mINFO[0m:     [19-10-2024 16:52:34] Uvicorn running on [1mhttp://localhost:8001[0m (Press CTRL+C to quit)
+[32mINFO[0m:     [19-10-2024 17:21:30] Shutting down
+[32mINFO[0m:     [19-10-2024 17:21:30] Waiting for application shutdown.
+[36mDEBUG[0m:    [19-10-2024 17:21:30] Stopping component System
+[36mDEBUG[0m:    [19-10-2024 17:21:30] Stopping component SegmentAPI
+[36mDEBUG[0m:    [19-10-2024 17:21:30] Stopping component LocalExecutor
+[36mDEBUG[0m:    [19-10-2024 17:21:30] Stopping component LocalSegmentManager
+[36mDEBUG[0m:    [19-10-2024 17:21:30] Stopping component SimpleRateLimitEnforcer
+[36mDEBUG[0m:    [19-10-2024 17:21:30] Stopping component Posthog
+[36mDEBUG[0m:    [19-10-2024 17:21:30] Stopping component QuotaEnforcer
+[36mDEBUG[0m:    [19-10-2024 17:21:30] Stopping component SqliteDB
+[36mDEBUG[0m:    [19-10-2024 17:21:30] Stopping component OpenTelemetryClient
+[32mINFO[0m:     [19-10-2024 17:21:30] Application shutdown complete.
+[32mINFO[0m:     [19-10-2024 17:21:30] Finished server process [[36m77467[0m]
+[33mWARNING[0m:  [19-10-2024 17:21:33] chroma_server_nofile is set to 65535, but this is less than current soft limit of 1048575. chroma_server_nofile will not be set.
+[32mINFO[0m:     [19-10-2024 17:21:33] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[36mDEBUG[0m:    [19-10-2024 17:21:33] Starting component System
+[36mDEBUG[0m:    [19-10-2024 17:21:33] Starting component OpenTelemetryClient
+[36mDEBUG[0m:    [19-10-2024 17:21:33] Starting component SqliteDB
+[36mDEBUG[0m:    [19-10-2024 17:21:33] Starting component QuotaEnforcer
+[36mDEBUG[0m:    [19-10-2024 17:21:33] Starting component Posthog
+[36mDEBUG[0m:    [19-10-2024 17:21:33] Starting component SimpleRateLimitEnforcer
+[36mDEBUG[0m:    [19-10-2024 17:21:33] Starting component LocalSegmentManager
+[36mDEBUG[0m:    [19-10-2024 17:21:33] Starting component LocalExecutor
+[36mDEBUG[0m:    [19-10-2024 17:21:33] Starting component SegmentAPI
+[32mINFO[0m:     [19-10-2024 17:21:33] Started server process [[36m78774[0m]
+[32mINFO[0m:     [19-10-2024 17:21:33] Waiting for application startup.
+[32mINFO[0m:     [19-10-2024 17:21:33] Application startup complete.
+[32mINFO[0m:     [19-10-2024 17:21:33] Uvicorn running on [1mhttp://localhost:8001[0m (Press CTRL+C to quit)
+[32mINFO[0m:     [19-10-2024 17:23:05] ::1:65052 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 17:23:05] ::1:65052 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 17:23:05] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 17:23:05] ::1:65053 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 17:23:05] Starting component PersistentLocalHnswSegment
+[33mWARNING[0m:  [19-10-2024 17:23:05] Number of requested results 10 is greater than number of elements in index 5, updating n_results = 5
+[32mINFO[0m:     [19-10-2024 17:23:05] ::1:65053 - "POST /api/v1/collections/fc5efe6c-3144-422a-9656-2daf7dded3c2/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 17:23:40] Shutting down
+[32mINFO[0m:     [19-10-2024 17:23:41] Waiting for application shutdown.
+[36mDEBUG[0m:    [19-10-2024 17:23:41] Stopping component System
+[36mDEBUG[0m:    [19-10-2024 17:23:41] Stopping component SegmentAPI
+[36mDEBUG[0m:    [19-10-2024 17:23:41] Stopping component LocalExecutor
+[36mDEBUG[0m:    [19-10-2024 17:23:41] Stopping component PersistentLocalHnswSegment
+[36mDEBUG[0m:    [19-10-2024 17:23:41] Stopping component LocalSegmentManager
+[36mDEBUG[0m:    [19-10-2024 17:23:41] Stopping component SimpleRateLimitEnforcer
+[36mDEBUG[0m:    [19-10-2024 17:23:41] Stopping component Posthog
+[36mDEBUG[0m:    [19-10-2024 17:23:41] Stopping component QuotaEnforcer
+[36mDEBUG[0m:    [19-10-2024 17:23:41] Stopping component SqliteDB
+[36mDEBUG[0m:    [19-10-2024 17:23:41] Stopping component OpenTelemetryClient
+[32mINFO[0m:     [19-10-2024 17:23:41] Application shutdown complete.
+[32mINFO[0m:     [19-10-2024 17:23:41] Finished server process [[36m78774[0m]
+[33mWARNING[0m:  [19-10-2024 17:23:43] chroma_server_nofile is set to 65535, but this is less than current soft limit of 1048575. chroma_server_nofile will not be set.
+[32mINFO[0m:     [19-10-2024 17:23:43] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[36mDEBUG[0m:    [19-10-2024 17:23:43] Starting component System
+[36mDEBUG[0m:    [19-10-2024 17:23:43] Starting component OpenTelemetryClient
+[36mDEBUG[0m:    [19-10-2024 17:23:43] Starting component SqliteDB
+[36mDEBUG[0m:    [19-10-2024 17:23:43] Starting component QuotaEnforcer
+[36mDEBUG[0m:    [19-10-2024 17:23:43] Starting component Posthog
+[36mDEBUG[0m:    [19-10-2024 17:23:43] Starting component SimpleRateLimitEnforcer
+[36mDEBUG[0m:    [19-10-2024 17:23:43] Starting component LocalSegmentManager
+[36mDEBUG[0m:    [19-10-2024 17:23:43] Starting component LocalExecutor
+[36mDEBUG[0m:    [19-10-2024 17:23:43] Starting component SegmentAPI
+[32mINFO[0m:     [19-10-2024 17:23:43] Started server process [[36m78951[0m]
+[32mINFO[0m:     [19-10-2024 17:23:43] Waiting for application startup.
+[32mINFO[0m:     [19-10-2024 17:23:43] Application startup complete.
+[32mINFO[0m:     [19-10-2024 17:23:43] Uvicorn running on [1mhttp://localhost:8001[0m (Press CTRL+C to quit)
+[32mINFO[0m:     [19-10-2024 17:24:37] ::1:65118 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 17:24:37] ::1:65118 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 17:24:37] ::1:65119 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 17:24:37] ::1:65119 - "POST /api/v1/collections/6c9781c8-c81d-40fd-bdfc-93ea2a74dbb8/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 17:25:52] ::1:65149 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 17:25:52] ::1:65149 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 17:25:52] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 17:25:52] ::1:65150 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 17:25:52] ::1:65150 - "GET /api/v1/pre-flight-checks HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 17:25:52] Starting component PersistentLocalHnswSegment
+[32mINFO[0m:     [19-10-2024 17:25:52] ::1:65150 - "POST /api/v1/collections/6c9781c8-c81d-40fd-bdfc-93ea2a74dbb8/upsert HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 17:25:52] ::1:65150 - "POST /api/v1/collections/6c9781c8-c81d-40fd-bdfc-93ea2a74dbb8/get HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 17:25:53] ::1:65156 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 17:25:53] ::1:65156 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 17:25:53] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 17:25:53] ::1:65157 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 17:30:36] ::1:65243 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 17:30:36] ::1:65243 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 17:30:36] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 17:30:36] ::1:65244 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 17:30:36] ::1:65244 - "GET /api/v1/pre-flight-checks HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 17:30:36] ::1:65244 - "POST /api/v1/collections/6c9781c8-c81d-40fd-bdfc-93ea2a74dbb8/upsert HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 17:30:36] ::1:65244 - "POST /api/v1/collections/6c9781c8-c81d-40fd-bdfc-93ea2a74dbb8/get HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 17:30:37] ::1:65252 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 17:30:37] ::1:65252 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 17:30:37] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 17:30:37] ::1:65253 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 17:30:40] ::1:65253 - "POST /api/v1/collections/6c9781c8-c81d-40fd-bdfc-93ea2a74dbb8/get HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 17:30:41] ::1:65253 - "GET /api/v1/pre-flight-checks HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 17:30:41] ::1:65253 - "POST /api/v1/collections/6c9781c8-c81d-40fd-bdfc-93ea2a74dbb8/upsert HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 17:30:41] ::1:65253 - "POST /api/v1/collections/6c9781c8-c81d-40fd-bdfc-93ea2a74dbb8/get HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 17:31:41] Shutting down
+[32mINFO[0m:     [19-10-2024 17:31:41] Waiting for application shutdown.
+[36mDEBUG[0m:    [19-10-2024 17:31:41] Stopping component System
+[36mDEBUG[0m:    [19-10-2024 17:31:41] Stopping component SegmentAPI
+[36mDEBUG[0m:    [19-10-2024 17:31:41] Stopping component LocalExecutor
+[36mDEBUG[0m:    [19-10-2024 17:31:41] Stopping component PersistentLocalHnswSegment
+[36mDEBUG[0m:    [19-10-2024 17:31:41] Stopping component LocalSegmentManager
+[36mDEBUG[0m:    [19-10-2024 17:31:41] Stopping component SimpleRateLimitEnforcer
+[36mDEBUG[0m:    [19-10-2024 17:31:41] Stopping component Posthog
+[36mDEBUG[0m:    [19-10-2024 17:31:41] Stopping component QuotaEnforcer
+[36mDEBUG[0m:    [19-10-2024 17:31:41] Stopping component SqliteDB
+[36mDEBUG[0m:    [19-10-2024 17:31:41] Stopping component OpenTelemetryClient
+[32mINFO[0m:     [19-10-2024 17:31:41] Application shutdown complete.
+[32mINFO[0m:     [19-10-2024 17:31:41] Finished server process [[36m78951[0m]
+[33mWARNING[0m:  [19-10-2024 17:31:44] chroma_server_nofile is set to 65535, but this is less than current soft limit of 1048575. chroma_server_nofile will not be set.
+[32mINFO[0m:     [19-10-2024 17:31:44] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[36mDEBUG[0m:    [19-10-2024 17:31:44] Starting component System
+[36mDEBUG[0m:    [19-10-2024 17:31:44] Starting component OpenTelemetryClient
+[36mDEBUG[0m:    [19-10-2024 17:31:44] Starting component SqliteDB
+[36mDEBUG[0m:    [19-10-2024 17:31:44] Starting component QuotaEnforcer
+[36mDEBUG[0m:    [19-10-2024 17:31:44] Starting component Posthog
+[36mDEBUG[0m:    [19-10-2024 17:31:44] Starting component SimpleRateLimitEnforcer
+[36mDEBUG[0m:    [19-10-2024 17:31:44] Starting component LocalSegmentManager
+[36mDEBUG[0m:    [19-10-2024 17:31:44] Starting component LocalExecutor
+[36mDEBUG[0m:    [19-10-2024 17:31:44] Starting component SegmentAPI
+[32mINFO[0m:     [19-10-2024 17:31:44] Started server process [[36m79417[0m]
+[32mINFO[0m:     [19-10-2024 17:31:44] Waiting for application startup.
+[32mINFO[0m:     [19-10-2024 17:31:44] Application startup complete.
+[32mINFO[0m:     [19-10-2024 17:31:44] Uvicorn running on [1mhttp://localhost:8001[0m (Press CTRL+C to quit)
+[32mINFO[0m:     [19-10-2024 17:33:08] ::1:65352 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 17:33:08] ::1:65352 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 17:33:08] ::1:65353 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 17:33:09] ::1:65353 - "POST /api/v1/collections/d2915895-9aa9-4c15-b5e8-7f09de168c91/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:10:12] Shutting down
+[32mINFO[0m:     [19-10-2024 18:10:12] Waiting for application shutdown.
+[36mDEBUG[0m:    [19-10-2024 18:10:12] Stopping component System
+[36mDEBUG[0m:    [19-10-2024 18:10:12] Stopping component SegmentAPI
+[36mDEBUG[0m:    [19-10-2024 18:10:12] Stopping component LocalExecutor
+[36mDEBUG[0m:    [19-10-2024 18:10:12] Stopping component LocalSegmentManager
+[36mDEBUG[0m:    [19-10-2024 18:10:12] Stopping component SimpleRateLimitEnforcer
+[36mDEBUG[0m:    [19-10-2024 18:10:12] Stopping component Posthog
+[36mDEBUG[0m:    [19-10-2024 18:10:12] Stopping component QuotaEnforcer
+[36mDEBUG[0m:    [19-10-2024 18:10:12] Stopping component SqliteDB
+[36mDEBUG[0m:    [19-10-2024 18:10:12] Stopping component OpenTelemetryClient
+[32mINFO[0m:     [19-10-2024 18:10:12] Application shutdown complete.
+[32mINFO[0m:     [19-10-2024 18:10:12] Finished server process [[36m79417[0m]
+[33mWARNING[0m:  [19-10-2024 18:10:25] chroma_server_nofile is set to 65535, but this is less than current soft limit of 1048575. chroma_server_nofile will not be set.
+[32mINFO[0m:     [19-10-2024 18:10:25] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[36mDEBUG[0m:    [19-10-2024 18:10:25] Starting component System
+[36mDEBUG[0m:    [19-10-2024 18:10:25] Starting component OpenTelemetryClient
+[36mDEBUG[0m:    [19-10-2024 18:10:25] Starting component SqliteDB
+[36mDEBUG[0m:    [19-10-2024 18:10:25] Starting component QuotaEnforcer
+[36mDEBUG[0m:    [19-10-2024 18:10:25] Starting component Posthog
+[36mDEBUG[0m:    [19-10-2024 18:10:25] Starting component SimpleRateLimitEnforcer
+[36mDEBUG[0m:    [19-10-2024 18:10:25] Starting component LocalSegmentManager
+[36mDEBUG[0m:    [19-10-2024 18:10:25] Starting component LocalExecutor
+[36mDEBUG[0m:    [19-10-2024 18:10:25] Starting component SegmentAPI
+[32mINFO[0m:     [19-10-2024 18:10:26] Started server process [[36m80316[0m]
+[32mINFO[0m:     [19-10-2024 18:10:26] Waiting for application startup.
+[32mINFO[0m:     [19-10-2024 18:10:26] Application startup complete.
+[32mINFO[0m:     [19-10-2024 18:10:26] Uvicorn running on [1mhttp://localhost:8001[0m (Press CTRL+C to quit)
+[32mINFO[0m:     [19-10-2024 18:11:26] ::1:49290 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:11:26] ::1:49290 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:11:26] ::1:49291 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:11:27] ::1:49291 - "POST /api/v1/collections/e179aacd-d7be-46d1-97ad-2f97ea178bed/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:14:18] ::1:49344 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:14:18] ::1:49344 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 18:14:18] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 18:14:18] ::1:49345 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:14:19] ::1:49345 - "GET /api/v1/pre-flight-checks HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 18:14:19] Starting component PersistentLocalHnswSegment
+[32mINFO[0m:     [19-10-2024 18:14:19] ::1:49345 - "POST /api/v1/collections/e179aacd-d7be-46d1-97ad-2f97ea178bed/upsert HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:14:19] ::1:49345 - "POST /api/v1/collections/e179aacd-d7be-46d1-97ad-2f97ea178bed/get HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:14:19] ::1:49353 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:14:19] ::1:49353 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 18:14:19] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 18:14:19] ::1:49354 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:15:04] ::1:49386 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:15:04] ::1:49386 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 18:15:04] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 18:15:04] ::1:49387 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:15:04] ::1:49387 - "GET /api/v1/pre-flight-checks HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:15:04] ::1:49387 - "POST /api/v1/collections/e179aacd-d7be-46d1-97ad-2f97ea178bed/upsert HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:15:04] ::1:49387 - "POST /api/v1/collections/e179aacd-d7be-46d1-97ad-2f97ea178bed/get HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:15:05] ::1:49394 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:15:05] ::1:49394 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 18:15:05] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 18:15:05] ::1:49395 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:17:19] ::1:49486 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:17:19] ::1:49486 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 18:17:19] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 18:17:19] ::1:49487 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:17:20] ::1:49487 - "GET /api/v1/pre-flight-checks HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:17:20] ::1:49487 - "POST /api/v1/collections/e179aacd-d7be-46d1-97ad-2f97ea178bed/upsert HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:17:20] ::1:49487 - "POST /api/v1/collections/e179aacd-d7be-46d1-97ad-2f97ea178bed/get HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:17:20] ::1:49495 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:17:20] ::1:49495 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 18:17:20] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 18:17:20] ::1:49496 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:20:09] ::1:49592 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:20:09] ::1:49592 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 18:20:09] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 18:20:09] ::1:49593 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:20:10] ::1:49593 - "GET /api/v1/pre-flight-checks HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:20:10] ::1:49593 - "POST /api/v1/collections/e179aacd-d7be-46d1-97ad-2f97ea178bed/upsert HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:20:10] ::1:49593 - "POST /api/v1/collections/e179aacd-d7be-46d1-97ad-2f97ea178bed/get HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:20:10] ::1:49601 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:20:10] ::1:49601 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 18:20:10] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 18:20:10] ::1:49602 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:26:48] ::1:49714 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:26:48] ::1:49714 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 18:26:48] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 18:26:48] ::1:49715 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:26:50] ::1:49715 - "GET /api/v1/pre-flight-checks HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:26:50] ::1:49715 - "POST /api/v1/collections/e179aacd-d7be-46d1-97ad-2f97ea178bed/upsert HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:26:50] ::1:49715 - "POST /api/v1/collections/e179aacd-d7be-46d1-97ad-2f97ea178bed/get HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:26:52] ::1:49727 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:26:52] ::1:49727 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 18:26:52] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 18:26:52] ::1:49728 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:27:34] ::1:49751 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:27:34] ::1:49751 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 18:27:34] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 18:27:34] ::1:49752 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:27:34] ::1:49752 - "GET /api/v1/pre-flight-checks HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:27:34] ::1:49752 - "POST /api/v1/collections/e179aacd-d7be-46d1-97ad-2f97ea178bed/upsert HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:27:34] ::1:49752 - "POST /api/v1/collections/e179aacd-d7be-46d1-97ad-2f97ea178bed/get HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:27:35] ::1:49759 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:27:35] ::1:49759 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 18:27:35] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 18:27:35] ::1:49760 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:28:09] ::1:49787 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:28:09] ::1:49787 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 18:28:09] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 18:28:09] ::1:49788 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:28:10] ::1:49788 - "GET /api/v1/pre-flight-checks HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:28:10] ::1:49788 - "POST /api/v1/collections/e179aacd-d7be-46d1-97ad-2f97ea178bed/upsert HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:28:10] ::1:49788 - "POST /api/v1/collections/e179aacd-d7be-46d1-97ad-2f97ea178bed/get HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:28:10] ::1:49795 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:28:10] ::1:49795 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 18:28:10] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 18:28:10] ::1:49796 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:29:39] ::1:49837 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:29:39] ::1:49837 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 18:29:39] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 18:29:39] ::1:49838 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:29:46] ::1:49843 - "GET /api/v1/pre-flight-checks HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:29:46] ::1:49843 - "POST /api/v1/collections/e179aacd-d7be-46d1-97ad-2f97ea178bed/upsert HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:29:46] ::1:49843 - "POST /api/v1/collections/e179aacd-d7be-46d1-97ad-2f97ea178bed/get HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:29:48] ::1:49848 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:29:48] ::1:49848 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 18:29:48] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 18:29:48] ::1:49849 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:32:10] ::1:49902 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:32:10] ::1:49902 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 18:32:10] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 18:32:10] ::1:49903 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:32:10] ::1:49903 - "GET /api/v1/pre-flight-checks HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:32:10] ::1:49903 - "POST /api/v1/collections/e179aacd-d7be-46d1-97ad-2f97ea178bed/upsert HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:32:10] ::1:49903 - "POST /api/v1/collections/e179aacd-d7be-46d1-97ad-2f97ea178bed/get HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:32:11] ::1:49911 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:32:11] ::1:49911 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 18:32:11] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 18:32:11] ::1:49912 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:32:14] ::1:49912 - "POST /api/v1/collections/e179aacd-d7be-46d1-97ad-2f97ea178bed/get HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:32:14] ::1:49912 - "GET /api/v1/pre-flight-checks HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:32:14] ::1:49912 - "POST /api/v1/collections/e179aacd-d7be-46d1-97ad-2f97ea178bed/upsert HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:32:14] ::1:49912 - "POST /api/v1/collections/e179aacd-d7be-46d1-97ad-2f97ea178bed/get HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:32:33] ::1:49932 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:32:33] ::1:49932 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 18:32:33] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 18:32:33] ::1:49933 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 18:32:34] Number of requested results 10 is greater than number of elements in index 9, updating n_results = 9
+[32mINFO[0m:     [19-10-2024 18:32:34] ::1:49933 - "POST /api/v1/collections/e179aacd-d7be-46d1-97ad-2f97ea178bed/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:34:39] Shutting down
+[32mINFO[0m:     [19-10-2024 18:34:39] Waiting for application shutdown.
+[36mDEBUG[0m:    [19-10-2024 18:34:39] Stopping component System
+[36mDEBUG[0m:    [19-10-2024 18:34:39] Stopping component SegmentAPI
+[36mDEBUG[0m:    [19-10-2024 18:34:39] Stopping component LocalExecutor
+[36mDEBUG[0m:    [19-10-2024 18:34:39] Stopping component PersistentLocalHnswSegment
+[36mDEBUG[0m:    [19-10-2024 18:34:39] Stopping component LocalSegmentManager
+[36mDEBUG[0m:    [19-10-2024 18:34:39] Stopping component SimpleRateLimitEnforcer
+[36mDEBUG[0m:    [19-10-2024 18:34:39] Stopping component Posthog
+[36mDEBUG[0m:    [19-10-2024 18:34:39] Stopping component QuotaEnforcer
+[36mDEBUG[0m:    [19-10-2024 18:34:39] Stopping component SqliteDB
+[36mDEBUG[0m:    [19-10-2024 18:34:39] Stopping component OpenTelemetryClient
+[32mINFO[0m:     [19-10-2024 18:34:39] Application shutdown complete.
+[32mINFO[0m:     [19-10-2024 18:34:39] Finished server process [[36m80316[0m]
+[33mWARNING[0m:  [19-10-2024 18:34:43] chroma_server_nofile is set to 65535, but this is less than current soft limit of 1048575. chroma_server_nofile will not be set.
+[32mINFO[0m:     [19-10-2024 18:34:43] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[36mDEBUG[0m:    [19-10-2024 18:34:43] Starting component System
+[36mDEBUG[0m:    [19-10-2024 18:34:43] Starting component OpenTelemetryClient
+[36mDEBUG[0m:    [19-10-2024 18:34:43] Starting component SqliteDB
+[36mDEBUG[0m:    [19-10-2024 18:34:43] Starting component QuotaEnforcer
+[36mDEBUG[0m:    [19-10-2024 18:34:43] Starting component Posthog
+[36mDEBUG[0m:    [19-10-2024 18:34:43] Starting component SimpleRateLimitEnforcer
+[36mDEBUG[0m:    [19-10-2024 18:34:43] Starting component LocalSegmentManager
+[36mDEBUG[0m:    [19-10-2024 18:34:43] Starting component LocalExecutor
+[36mDEBUG[0m:    [19-10-2024 18:34:43] Starting component SegmentAPI
+[32mINFO[0m:     [19-10-2024 18:34:43] Started server process [[36m81558[0m]
+[32mINFO[0m:     [19-10-2024 18:34:43] Waiting for application startup.
+[32mINFO[0m:     [19-10-2024 18:34:43] Application startup complete.
+[32mINFO[0m:     [19-10-2024 18:34:43] Uvicorn running on [1mhttp://localhost:8001[0m (Press CTRL+C to quit)
+[32mINFO[0m:     [19-10-2024 18:36:25] ::1:50092 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:36:25] ::1:50092 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:36:25] ::1:50093 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:36:25] ::1:50093 - "GET /api/v1/pre-flight-checks HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 18:36:25] Starting component PersistentLocalHnswSegment
+[32mINFO[0m:     [19-10-2024 18:36:25] ::1:50093 - "POST /api/v1/collections/338a1ad2-c556-48aa-994c-3dbfd9ce7ec1/upsert HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:36:25] ::1:50093 - "POST /api/v1/collections/338a1ad2-c556-48aa-994c-3dbfd9ce7ec1/get HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:36:26] ::1:50101 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:36:26] ::1:50101 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 18:36:26] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 18:36:26] ::1:50102 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:36:29] ::1:50102 - "POST /api/v1/collections/338a1ad2-c556-48aa-994c-3dbfd9ce7ec1/get HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:36:29] ::1:50102 - "GET /api/v1/pre-flight-checks HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:36:29] ::1:50102 - "POST /api/v1/collections/338a1ad2-c556-48aa-994c-3dbfd9ce7ec1/upsert HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:36:29] ::1:50102 - "POST /api/v1/collections/338a1ad2-c556-48aa-994c-3dbfd9ce7ec1/get HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:36:54] ::1:50161 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:36:54] ::1:50161 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 18:36:54] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 18:36:54] ::1:50162 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 18:36:54] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 18:36:54] ::1:50162 - "POST /api/v1/collections/338a1ad2-c556-48aa-994c-3dbfd9ce7ec1/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:36:56] ::1:50166 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:36:56] ::1:50166 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 18:36:56] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 18:36:56] ::1:50167 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 18:36:57] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 18:36:57] ::1:50167 - "POST /api/v1/collections/338a1ad2-c556-48aa-994c-3dbfd9ce7ec1/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:36:59] ::1:50171 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:36:59] ::1:50171 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 18:36:59] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 18:36:59] ::1:50172 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 18:37:00] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 18:37:00] ::1:50172 - "POST /api/v1/collections/338a1ad2-c556-48aa-994c-3dbfd9ce7ec1/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:37:02] ::1:50183 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:37:02] ::1:50183 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 18:37:02] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 18:37:02] ::1:50184 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 18:37:02] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 18:37:02] ::1:50184 - "POST /api/v1/collections/338a1ad2-c556-48aa-994c-3dbfd9ce7ec1/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:38:08] ::1:50256 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 18:38:08] ::1:50256 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 18:38:08] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 18:38:08] ::1:50257 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 18:38:09] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 18:38:09] ::1:50257 - "POST /api/v1/collections/338a1ad2-c556-48aa-994c-3dbfd9ce7ec1/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:14:25] Shutting down
+[32mINFO[0m:     [19-10-2024 19:14:25] Waiting for application shutdown.
+[36mDEBUG[0m:    [19-10-2024 19:14:25] Stopping component System
+[36mDEBUG[0m:    [19-10-2024 19:14:25] Stopping component SegmentAPI
+[36mDEBUG[0m:    [19-10-2024 19:14:25] Stopping component LocalExecutor
+[36mDEBUG[0m:    [19-10-2024 19:14:25] Stopping component PersistentLocalHnswSegment
+[36mDEBUG[0m:    [19-10-2024 19:14:25] Stopping component LocalSegmentManager
+[36mDEBUG[0m:    [19-10-2024 19:14:25] Stopping component SimpleRateLimitEnforcer
+[36mDEBUG[0m:    [19-10-2024 19:14:25] Stopping component Posthog
+[36mDEBUG[0m:    [19-10-2024 19:14:25] Stopping component QuotaEnforcer
+[36mDEBUG[0m:    [19-10-2024 19:14:25] Stopping component SqliteDB
+[36mDEBUG[0m:    [19-10-2024 19:14:25] Stopping component OpenTelemetryClient
+[32mINFO[0m:     [19-10-2024 19:14:25] Application shutdown complete.
+[32mINFO[0m:     [19-10-2024 19:14:25] Finished server process [[36m81558[0m]
+[33mWARNING[0m:  [19-10-2024 19:14:30] chroma_server_nofile is set to 65535, but this is less than current soft limit of 1048575. chroma_server_nofile will not be set.
+[32mINFO[0m:     [19-10-2024 19:14:30] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[36mDEBUG[0m:    [19-10-2024 19:14:30] Starting component System
+[36mDEBUG[0m:    [19-10-2024 19:14:30] Starting component OpenTelemetryClient
+[36mDEBUG[0m:    [19-10-2024 19:14:30] Starting component SqliteDB
+[36mDEBUG[0m:    [19-10-2024 19:14:30] Starting component QuotaEnforcer
+[36mDEBUG[0m:    [19-10-2024 19:14:30] Starting component Posthog
+[36mDEBUG[0m:    [19-10-2024 19:14:30] Starting component SimpleRateLimitEnforcer
+[36mDEBUG[0m:    [19-10-2024 19:14:30] Starting component LocalSegmentManager
+[36mDEBUG[0m:    [19-10-2024 19:14:30] Starting component LocalExecutor
+[36mDEBUG[0m:    [19-10-2024 19:14:30] Starting component SegmentAPI
+[32mINFO[0m:     [19-10-2024 19:14:30] Started server process [[36m82074[0m]
+[32mINFO[0m:     [19-10-2024 19:14:30] Waiting for application startup.
+[32mINFO[0m:     [19-10-2024 19:14:30] Application startup complete.
+[32mINFO[0m:     [19-10-2024 19:14:30] Uvicorn running on [1mhttp://localhost:8001[0m (Press CTRL+C to quit)
+[32mINFO[0m:     [19-10-2024 19:16:21] Shutting down
+[32mINFO[0m:     [19-10-2024 19:16:21] Waiting for application shutdown.
+[36mDEBUG[0m:    [19-10-2024 19:16:21] Stopping component System
+[36mDEBUG[0m:    [19-10-2024 19:16:21] Stopping component SegmentAPI
+[36mDEBUG[0m:    [19-10-2024 19:16:21] Stopping component LocalExecutor
+[36mDEBUG[0m:    [19-10-2024 19:16:21] Stopping component LocalSegmentManager
+[36mDEBUG[0m:    [19-10-2024 19:16:21] Stopping component SimpleRateLimitEnforcer
+[36mDEBUG[0m:    [19-10-2024 19:16:21] Stopping component Posthog
+[36mDEBUG[0m:    [19-10-2024 19:16:21] Stopping component QuotaEnforcer
+[36mDEBUG[0m:    [19-10-2024 19:16:21] Stopping component SqliteDB
+[36mDEBUG[0m:    [19-10-2024 19:16:21] Stopping component OpenTelemetryClient
+[32mINFO[0m:     [19-10-2024 19:16:21] Application shutdown complete.
+[32mINFO[0m:     [19-10-2024 19:16:21] Finished server process [[36m82074[0m]
+[33mWARNING[0m:  [19-10-2024 19:16:23] chroma_server_nofile is set to 65535, but this is less than current soft limit of 1048575. chroma_server_nofile will not be set.
+[32mINFO[0m:     [19-10-2024 19:16:23] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[36mDEBUG[0m:    [19-10-2024 19:16:23] Starting component System
+[36mDEBUG[0m:    [19-10-2024 19:16:23] Starting component OpenTelemetryClient
+[36mDEBUG[0m:    [19-10-2024 19:16:23] Starting component SqliteDB
+[36mDEBUG[0m:    [19-10-2024 19:16:23] Starting component QuotaEnforcer
+[36mDEBUG[0m:    [19-10-2024 19:16:23] Starting component Posthog
+[36mDEBUG[0m:    [19-10-2024 19:16:23] Starting component SimpleRateLimitEnforcer
+[36mDEBUG[0m:    [19-10-2024 19:16:23] Starting component LocalSegmentManager
+[36mDEBUG[0m:    [19-10-2024 19:16:23] Starting component LocalExecutor
+[36mDEBUG[0m:    [19-10-2024 19:16:23] Starting component SegmentAPI
+[32mINFO[0m:     [19-10-2024 19:16:23] Started server process [[36m82313[0m]
+[32mINFO[0m:     [19-10-2024 19:16:23] Waiting for application startup.
+[32mINFO[0m:     [19-10-2024 19:16:23] Application startup complete.
+[32mINFO[0m:     [19-10-2024 19:16:23] Uvicorn running on [1mhttp://localhost:8001[0m (Press CTRL+C to quit)
+[32mINFO[0m:     [19-10-2024 19:21:47] ::1:50720 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:21:47] ::1:50720 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:21:47] ::1:50721 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:21:48] ::1:50721 - "GET /api/v1/pre-flight-checks HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 19:21:48] Starting component PersistentLocalHnswSegment
+[32mINFO[0m:     [19-10-2024 19:21:48] ::1:50721 - "POST /api/v1/collections/62e425ef-3951-4511-9287-7f84f150d8d5/upsert HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:21:48] ::1:50721 - "POST /api/v1/collections/62e425ef-3951-4511-9287-7f84f150d8d5/get HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:21:49] ::1:50730 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:21:49] ::1:50730 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 19:21:49] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 19:21:49] ::1:50731 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:23:26] ::1:50802 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:23:26] ::1:50802 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 19:23:26] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 19:23:26] ::1:50803 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:23:26] ::1:50803 - "GET /api/v1/pre-flight-checks HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:23:26] ::1:50803 - "POST /api/v1/collections/62e425ef-3951-4511-9287-7f84f150d8d5/upsert HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:23:26] ::1:50803 - "POST /api/v1/collections/62e425ef-3951-4511-9287-7f84f150d8d5/get HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:23:27] ::1:50812 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:23:27] ::1:50812 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 19:23:27] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 19:23:27] ::1:50813 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:23:30] ::1:50813 - "POST /api/v1/collections/62e425ef-3951-4511-9287-7f84f150d8d5/get HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:23:30] ::1:50813 - "GET /api/v1/pre-flight-checks HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:23:30] ::1:50813 - "POST /api/v1/collections/62e425ef-3951-4511-9287-7f84f150d8d5/upsert HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:23:30] ::1:50813 - "POST /api/v1/collections/62e425ef-3951-4511-9287-7f84f150d8d5/get HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:23:47] ::1:50833 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:23:47] ::1:50833 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 19:23:47] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 19:23:47] ::1:50834 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 19:23:48] Number of requested results 10 is greater than number of elements in index 2, updating n_results = 2
+[32mINFO[0m:     [19-10-2024 19:23:48] ::1:50834 - "POST /api/v1/collections/62e425ef-3951-4511-9287-7f84f150d8d5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:25:30] ::1:50881 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:25:30] ::1:50881 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 19:25:30] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 19:25:30] ::1:50882 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 19:25:31] Number of requested results 10 is greater than number of elements in index 2, updating n_results = 2
+[32mINFO[0m:     [19-10-2024 19:25:31] ::1:50882 - "POST /api/v1/collections/62e425ef-3951-4511-9287-7f84f150d8d5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:29:56] ::1:51014 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:29:56] ::1:51014 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 19:29:56] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 19:29:56] ::1:51015 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:29:56] ::1:51015 - "GET /api/v1/pre-flight-checks HTTP/1.1" 200
+[31mERROR[0m:    [19-10-2024 19:29:56] attempt to write a readonly database
+Traceback (most recent call last):
+  File "/Users/vprak17/Desktop/Memento/venv/lib/python3.11/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vprak17/Desktop/Memento/venv/lib/python3.11/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/vprak17/Desktop/Memento/venv/lib/python3.11/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+           ^^^^^^^^^^^^^
+AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/vprak17/Desktop/Memento/venv/lib/python3.11/site-packages/starlette/middleware/base.py", line 157, in call_next
+    message = await recv_stream.receive()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vprak17/Desktop/Memento/venv/lib/python3.11/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/vprak17/Desktop/Memento/venv/lib/python3.11/site-packages/chromadb/server/fastapi/__init__.py", line 103, in catch_exceptions_middleware
+    return await call_next(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vprak17/Desktop/Memento/venv/lib/python3.11/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/Users/vprak17/Desktop/Memento/venv/lib/python3.11/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/Users/vprak17/Desktop/Memento/venv/lib/python3.11/site-packages/starlette/middleware/base.py", line 185, in __call__
+    with collapse_excgroups():
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 155, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/vprak17/Desktop/Memento/venv/lib/python3.11/site-packages/starlette/_utils.py", line 82, in collapse_excgroups
+    raise exc
+  File "/Users/vprak17/Desktop/Memento/venv/lib/python3.11/site-packages/starlette/middleware/base.py", line 187, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vprak17/Desktop/Memento/venv/lib/python3.11/site-packages/chromadb/server/fastapi/__init__.py", line 117, in check_http_version_middleware
+    return await call_next(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vprak17/Desktop/Memento/venv/lib/python3.11/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/Users/vprak17/Desktop/Memento/venv/lib/python3.11/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/Users/vprak17/Desktop/Memento/venv/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/vprak17/Desktop/Memento/venv/lib/python3.11/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "/Users/vprak17/Desktop/Memento/venv/lib/python3.11/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/vprak17/Desktop/Memento/venv/lib/python3.11/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/vprak17/Desktop/Memento/venv/lib/python3.11/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/Users/vprak17/Desktop/Memento/venv/lib/python3.11/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/Users/vprak17/Desktop/Memento/venv/lib/python3.11/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/vprak17/Desktop/Memento/venv/lib/python3.11/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "/Users/vprak17/Desktop/Memento/venv/lib/python3.11/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/vprak17/Desktop/Memento/venv/lib/python3.11/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/Users/vprak17/Desktop/Memento/venv/lib/python3.11/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vprak17/Desktop/Memento/venv/lib/python3.11/site-packages/fastapi/routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vprak17/Desktop/Memento/venv/lib/python3.11/site-packages/chromadb/telemetry/opentelemetry/__init__.py", line 133, in async_wrapper
+    return await f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vprak17/Desktop/Memento/venv/lib/python3.11/site-packages/chromadb/server/fastapi/__init__.py", line 867, in upsert
+    await to_thread.run_sync(
+  File "/Users/vprak17/Desktop/Memento/venv/lib/python3.11/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vprak17/Desktop/Memento/venv/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 2441, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/Users/vprak17/Desktop/Memento/venv/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 943, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vprak17/Desktop/Memento/venv/lib/python3.11/site-packages/chromadb/server/fastapi/__init__.py", line 853, in process_upsert
+    return self._api._upsert(
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/vprak17/Desktop/Memento/venv/lib/python3.11/site-packages/chromadb/telemetry/opentelemetry/__init__.py", line 146, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/vprak17/Desktop/Memento/venv/lib/python3.11/site-packages/chromadb/api/segment.py", line 468, in _upsert
+    self._producer.submit_embeddings(collection_id, records_to_submit)
+  File "/Users/vprak17/Desktop/Memento/venv/lib/python3.11/site-packages/chromadb/telemetry/opentelemetry/__init__.py", line 146, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/vprak17/Desktop/Memento/venv/lib/python3.11/site-packages/chromadb/db/mixins/embeddings_queue.py", line 243, in submit_embeddings
+    results = cur.execute(sql, params).fetchall()
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: attempt to write a readonly database
+[32mINFO[0m:     [19-10-2024 19:29:56] ::1:51015 - "POST /api/v1/collections/62e425ef-3951-4511-9287-7f84f150d8d5/upsert HTTP/1.1" 500
+[32mINFO[0m:     [19-10-2024 19:29:57] ::1:51024 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:29:57] ::1:51024 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 19:29:57] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 19:29:57] ::1:51025 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:30:00] ::1:51025 - "POST /api/v1/collections/62e425ef-3951-4511-9287-7f84f150d8d5/get HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:33:08] Shutting down
+[32mINFO[0m:     [19-10-2024 19:33:08] Waiting for application shutdown.
+[36mDEBUG[0m:    [19-10-2024 19:33:08] Stopping component System
+[36mDEBUG[0m:    [19-10-2024 19:33:08] Stopping component SegmentAPI
+[36mDEBUG[0m:    [19-10-2024 19:33:08] Stopping component LocalExecutor
+[36mDEBUG[0m:    [19-10-2024 19:33:08] Stopping component PersistentLocalHnswSegment
+[36mDEBUG[0m:    [19-10-2024 19:33:08] Stopping component LocalSegmentManager
+[36mDEBUG[0m:    [19-10-2024 19:33:08] Stopping component SimpleRateLimitEnforcer
+[36mDEBUG[0m:    [19-10-2024 19:33:08] Stopping component Posthog
+[36mDEBUG[0m:    [19-10-2024 19:33:08] Stopping component QuotaEnforcer
+[36mDEBUG[0m:    [19-10-2024 19:33:08] Stopping component SqliteDB
+[36mDEBUG[0m:    [19-10-2024 19:33:08] Stopping component OpenTelemetryClient
+[32mINFO[0m:     [19-10-2024 19:33:08] Application shutdown complete.
+[32mINFO[0m:     [19-10-2024 19:33:08] Finished server process [[36m82313[0m]
+[33mWARNING[0m:  [19-10-2024 19:33:10] chroma_server_nofile is set to 65535, but this is less than current soft limit of 1048575. chroma_server_nofile will not be set.
+[32mINFO[0m:     [19-10-2024 19:33:10] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[36mDEBUG[0m:    [19-10-2024 19:33:10] Starting component System
+[36mDEBUG[0m:    [19-10-2024 19:33:10] Starting component OpenTelemetryClient
+[36mDEBUG[0m:    [19-10-2024 19:33:10] Starting component SqliteDB
+[36mDEBUG[0m:    [19-10-2024 19:33:10] Starting component QuotaEnforcer
+[36mDEBUG[0m:    [19-10-2024 19:33:10] Starting component Posthog
+[36mDEBUG[0m:    [19-10-2024 19:33:10] Starting component SimpleRateLimitEnforcer
+[36mDEBUG[0m:    [19-10-2024 19:33:10] Starting component LocalSegmentManager
+[36mDEBUG[0m:    [19-10-2024 19:33:10] Starting component LocalExecutor
+[36mDEBUG[0m:    [19-10-2024 19:33:10] Starting component SegmentAPI
+[32mINFO[0m:     [19-10-2024 19:33:10] Started server process [[36m83372[0m]
+[32mINFO[0m:     [19-10-2024 19:33:10] Waiting for application startup.
+[32mINFO[0m:     [19-10-2024 19:33:10] Application startup complete.
+[32mINFO[0m:     [19-10-2024 19:33:10] Uvicorn running on [1mhttp://localhost:8001[0m (Press CTRL+C to quit)
+[32mINFO[0m:     [19-10-2024 19:33:39] ::1:51152 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:33:39] ::1:51152 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:33:39] ::1:51153 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:33:40] ::1:51153 - "GET /api/v1/pre-flight-checks HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 19:33:40] Starting component PersistentLocalHnswSegment
+[32mINFO[0m:     [19-10-2024 19:33:40] ::1:51153 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/upsert HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:33:40] ::1:51153 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/get HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:33:41] ::1:51161 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:33:41] ::1:51161 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 19:33:41] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 19:33:41] ::1:51162 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:33:43] ::1:51162 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/get HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:33:43] ::1:51162 - "GET /api/v1/pre-flight-checks HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:33:43] ::1:51162 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/upsert HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:33:43] ::1:51162 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/get HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:34:07] ::1:51180 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:34:07] ::1:51180 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 19:34:07] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 19:34:07] ::1:51181 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 19:34:07] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 19:34:07] ::1:51181 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:35:14] ::1:51214 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:35:14] ::1:51214 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 19:35:14] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 19:35:14] ::1:51215 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 19:35:14] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 19:35:14] ::1:51215 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:52:14] ::1:55258 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:52:14] ::1:55258 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 19:52:14] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 19:52:14] ::1:55259 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 19:52:14] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 19:52:14] ::1:55259 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:56:51] ::1:56160 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 19:56:51] ::1:56160 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 19:56:51] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 19:56:51] ::1:56161 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 19:56:52] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 19:56:52] ::1:56161 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 20:02:54] ::1:57681 - "GET /api/v1/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [19-10-2024 20:02:54] ::1:57681 - "GET /api/v1/databases/default_database?tenant=default_tenant HTTP/1.1" 200
+[36mDEBUG[0m:    [19-10-2024 20:02:54] Collection vectordb already exists, returning existing collection.
+[32mINFO[0m:     [19-10-2024 20:02:54] ::1:57682 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 20:02:55] Number of requested results 10 is greater than number of elements in index 1, updating n_results = 1
+[32mINFO[0m:     [19-10-2024 20:02:55] ::1:57682 - "POST /api/v1/collections/ae17e3a1-90ae-4309-b47e-3cb3c4f90dc5/query HTTP/1.1" 200

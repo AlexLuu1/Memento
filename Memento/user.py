@@ -91,6 +91,7 @@ class UserState(rx.State):
         # Iterate through the documents
         for i, (doc, metadata) in enumerate(zip(documents, metadatas)):
             # Split the document into date and description
+            print(doc.split('|', 2))
             date, description, image_summary = doc.split('|', 2)
             filename = metadata["filename"]
             
@@ -153,7 +154,7 @@ class UserState(rx.State):
         text = generated.candidates[0].content.parts[1].function_call.__str__()
         import re
         pattern = r'string_value:\s*"([a-f0-9-]+)"'
-        self.img_to_display = f"/uploaded_files/{re.search(pattern, text).group(1)}"
+        self.img_to_display = f"{re.search(pattern, text).group(1)}.jpg"
         print("Image Name:", self.img_to_display)
         
 
@@ -253,18 +254,18 @@ def user_index() -> rx.Component:
                     rx.text("..."),
                 ),
             ),
-            rx.cond(
-               UserState.process_llm,
-               rx.audio(
-                    url=UserState.get_tts,
-                    width="0px",
-                    height="0px",   
-                    playing=True
-                ),
-            ),
+            # rx.cond(
+            #    UserState.process_llm,
+            #    rx.audio(
+            #         url=UserState.get_tts,
+            #         width="0px",
+            #         height="0px",   
+            #         playing=True
+            #     ),
+            # ),
             rx.cond(
                 UserState.img_to_display != "",
-                rx.image(src=UserState.img_to_display, width="100px", height="auto"),
+                rx.image(src=rx.get_upload_url(UserState.img_to_display), width="100px", height="auto"),
             ),
             rx.cond(
                 UserState.text_output != "",
