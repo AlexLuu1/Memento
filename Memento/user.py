@@ -65,6 +65,7 @@ class UserState(rx.State):
     device_id: str = ""
     use_mp3: bool = True
     tts_output_file: str = ""
+    is_talking: bool = False
 
     img_to_display: str = ""
     text_output: str = ""
@@ -159,7 +160,6 @@ class UserState(rx.State):
         <guidelines>
         - Always greet the user with a warm welcome.
         - When a memory is mentioned, respond with excitement and genuine interest.
-        - Use phrases like "Oh, what a wonderful memory!" or "I remember you telling me about that before. Let's take a closer look."
         - Do NOT mention the Image Summary directly, understand the Image Summary paired with the Description to understand the context.
         - Your response should contain about one paragraph long, try to elaborate things mentioned in the Description and Image Summary.
         - If a memory seems emotional, acknowledge the user's feelings with empathy.
@@ -208,6 +208,7 @@ class UserState(rx.State):
 
         # Get Text
         self.text_output = response.candidates[-1].content.parts[0].text
+        self.is_talking = True
         print(self.text_output)
 
         # Save history
@@ -237,6 +238,7 @@ class UserState(rx.State):
         # self.text_output = ""
         # self.img_to_display = ""
         self.filenum += 1
+        self.is_talking = False
 
     @rx.var(cache=True)
     def get_tts(self) -> str:
@@ -344,7 +346,7 @@ def user_index() -> rx.Component:
                     rx.image(src=rx.get_upload_url(UserState.img_to_display), width="100%", height="auto"),
                 ),
                 rx.cond(
-                    UserState.text_output != "",
+                    UserState.is_talking,
                     rx.audio(
                         url=rx.get_upload_url(UserState.get_tts),
                         width="0px",
