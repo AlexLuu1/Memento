@@ -56,3 +56,18 @@
 [32mINFO[0m:     [19-10-2024 14:28:21] ::1:60619 - "POST /api/v1/collections?tenant=default_tenant&database=default_database HTTP/1.1" 200
 [32mINFO[0m:     [19-10-2024 14:28:25] ::1:60619 - "GET /api/v1/pre-flight-checks HTTP/1.1" 200
 [32mINFO[0m:     [19-10-2024 14:28:25] ::1:60619 - "POST /api/v1/collections/fc5efe6c-3144-422a-9656-2daf7dded3c2/upsert HTTP/1.1" 200
+[33mWARNING[0m:  [19-10-2024 16:52:33] chroma_server_nofile is set to 65535, but this is less than current soft limit of 1048575. chroma_server_nofile will not be set.
+[32mINFO[0m:     [19-10-2024 16:52:34] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[36mDEBUG[0m:    [19-10-2024 16:52:34] Starting component System
+[36mDEBUG[0m:    [19-10-2024 16:52:34] Starting component OpenTelemetryClient
+[36mDEBUG[0m:    [19-10-2024 16:52:34] Starting component SqliteDB
+[36mDEBUG[0m:    [19-10-2024 16:52:34] Starting component QuotaEnforcer
+[36mDEBUG[0m:    [19-10-2024 16:52:34] Starting component Posthog
+[36mDEBUG[0m:    [19-10-2024 16:52:34] Starting component SimpleRateLimitEnforcer
+[36mDEBUG[0m:    [19-10-2024 16:52:34] Starting component LocalSegmentManager
+[36mDEBUG[0m:    [19-10-2024 16:52:34] Starting component LocalExecutor
+[36mDEBUG[0m:    [19-10-2024 16:52:34] Starting component SegmentAPI
+[32mINFO[0m:     [19-10-2024 16:52:34] Started server process [[36m77467[0m]
+[32mINFO[0m:     [19-10-2024 16:52:34] Waiting for application startup.
+[32mINFO[0m:     [19-10-2024 16:52:34] Application startup complete.
+[32mINFO[0m:     [19-10-2024 16:52:34] Uvicorn running on [1mhttp://localhost:8001[0m (Press CTRL+C to quit)

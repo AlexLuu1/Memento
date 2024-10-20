@@ -46,8 +46,7 @@ class UserState(rx.State):
 
     img_to_display: str = ""
     text_output: str = ""
-    process_input: bool = False
-    process_output: bool = False
+    process_llm: bool = False
 
     async def on_data_available(self, chunk: str):
         mime_type, _, codec = get_codec(chunk).partition(";")
@@ -173,18 +172,18 @@ class UserState(rx.State):
         return capture.start()
     
     @rx.var
-    def get_tts(self):
+    def get_tts(self)->str:
+        self.process_llm = False
         SPEAK_OPTIONS = {"text": "Hello, how can I help you today?"}
         self.tts_output_file = "assets/tts_output.mp3"
         options = SpeakOptions(
             model="aura-asteria-en",
         )
 
-        # response = deepgram.speak.v("1").save(self.tts_output_file, SPEAK_OPTIONS, options)
-        print("DEEPGRAM FINISHED RUNING AT ", self.tts_output_file)
+        response = deepgram.speak.v("1").save(self.tts_output_file, SPEAK_OPTIONS, options)
         # self.process_inputs = False
         # self.process_outputs = False
-        return "assets/tts_output.mp3"#self.tts_output_file
+        return "/tts_output.mp3"#self.tts_output_file
 
 
 capture = AudioRecorderPolyfill.create(
@@ -254,17 +253,15 @@ def user_index() -> rx.Component:
                     rx.text("..."),
                 ),
             ),
-            # rx.cond(
-            #    done_processing,
-            #    
-            # )
-            # rx.audio(
-            #     url=UserState.get_tts,
-            #     width="400px",
-            #     height="32px",   
-            # ),
-            #
-            #
+            rx.cond(
+               UserState.process_llm,
+               rx.audio(
+                    url=UserState.get_tts,
+                    width="0px",
+                    height="0px",   
+                    playing=True
+                ),
+            ),
             rx.cond(
                 UserState.img_to_display != "",
                 rx.image(src=UserState.img_to_display, width="100px", height="auto"),
