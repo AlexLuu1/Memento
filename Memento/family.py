@@ -94,14 +94,15 @@ class FamilyState(rx.State):
                 self.data.append({
                     "date": date_formatted,
                     "description": description,
-                    "image_filename": image_filename
+                    "image_filename": image_filename,
+                    "og_date": date_str,
                 })
             except ValueError as e:
                 print(f"Error parsing document: {e}")
                 continue
 
         # Sort the data by date in descending order (newest first)
-        self.data.sort(key=lambda x: x["date"], reverse=True)
+        self.data.sort(key=lambda x: x["og_date"], reverse=True)
         print(self.data)
 
 

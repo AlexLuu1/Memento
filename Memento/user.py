@@ -309,7 +309,7 @@ def user_index() -> rx.Component:
                 heading_type="h2",
                 font_size="2.5rem",
                 margin_bottom="0rem",
-                heading_text="Learn What Family Is Doing!",
+                heading_text="Learn What Your Family Is Doing!",
             ),
             capture,
             rx.divider(width="100%", border_color="#A9A9A9", border_width="2px", margin_y="1.5rem"),
