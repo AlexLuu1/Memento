@@ -1,6 +1,7 @@
 reflex==0.6.3
-reflex_audio_capture
-vapi_python
-pillow
-chromadb
-google.generativeai
+reflex_audio_capture==0.0.4
+pillow==11.0.0
+chromadb==0.5.15
+google.generativeai==0.8.3
+deepgram-sdk==3.7.4
+groq==0.11.0
